@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Ozdemir, Burhanettin
+AU  - Pacal, Ishak
+PY  - 2025
+DA  - 2025/02/10
+TI  - A robust deep learning framework for multiclass skin cancer classification
+JO  - Scientific Reports
+SP  - 4938
+VL  - 15
+IS  - 1
+AB  - Skin cancer represents a significant global health concern, where early and precise diagnosis plays a pivotal role in improving treatment efficacy and patient survival rates. Nonetheless, the inherent visual similarities between benign and malignant lesions pose substantial challenges to accurate classification. To overcome these obstacles, this study proposes an innovative hybrid deep learning model that combines ConvNeXtV2 blocks and separable self-attention mechanisms, tailored to enhance feature extraction and optimize classification performance. The inclusion of ConvNeXtV2 blocks in the initial two stages is driven by their ability to effectively capture fine-grained local features and subtle patterns, which are critical for distinguishing between visually similar lesion types. Meanwhile, the adoption of separable self-attention in the later stages allows the model to selectively prioritize diagnostically relevant regions while minimizing computational complexity, addressing the inefficiencies often associated with traditional self-attention mechanisms. The model was comprehensively trained and validated on the ISIC 2019 dataset, which includes eight distinct skin lesion categories. Advanced methodologies such as data augmentation and transfer learning were employed to further enhance model robustness and reliability. The proposed architecture achieved exceptional performance metrics, with 93.48% accuracy, 93.24% precision, 90.70% recall, and a 91.82% F1-score, outperforming over ten Convolutional Neural Network (CNN) based and over ten Vision Transformer (ViT) based models tested under comparable conditions. Despite its robust performance, the model maintains a compact design with only 21.92 million parameters, making it highly efficient and suitable for model deployment. The Proposed Model demonstrates exceptional accuracy and generalizability across diverse skin lesion classes, establishing a reliable framework for early and accurate skin cancer diagnosis in clinical practice.
+SN  - 2045-2322
+UR  - https://doi.org/10.1038/s41598-025-89230-7
+DO  - 10.1038/s41598-025-89230-7
+ID  - Ozdemir2025
+ER  - 

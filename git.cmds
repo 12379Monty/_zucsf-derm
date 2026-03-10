@@ -1,0 +1,15 @@
+git init
+git add *
+git commit -m "initial c"
+
+
+git remote add origin https://github.com/12379Monty/_zUCSF_derm
+git branch -M master
+git push -u origin master
+
+# A Step-by-Step Guide: Deploying on Netlify
+
+Step 1: Add Your New Site
+
+...
+

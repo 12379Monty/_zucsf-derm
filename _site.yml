@@ -1,0 +1,7 @@
+name: "ucsf_derm"
+output_dir: "_site"
+navbar:
+  title: "Diagnosis of common skin cancers"
+  left:
+    - text: "Home"
+      href: index.html
