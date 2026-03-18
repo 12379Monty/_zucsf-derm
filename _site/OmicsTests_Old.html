@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="" />
+  <title>Study Design and Analysis Guidelines for Genomic Scale Data</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/reveal.js-4.2.1/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/reveal.js-4.2.1/dist/reveal.css">
+
+  <style type="text/css">
+    /* CSS from pandoc style.html() */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+                  </style>
+
+  <link rel="stylesheet" href="site_libs/reveal.js-4.2.1/dist/theme/night.css" id="theme">
+
+
+  <style type="text/css">
+  /* some tweaks to reveal css */
+    .reveal section img {
+      background: rgba(255, 255, 255, 0.85);
+    }
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+  </style>
+
+    <link rel="stylesheet" href=".reveal h1 { font-size: 1.2em; color: #4ec9b0; }
+.reveal h2 { font-size: 1.0em; color: #9cdcfe; }
+.reveal ul { font-size: 0.65em; }
+.reveal p  { font-size: 0.65em; }
+.reveal table { font-size: 0.65em; }
+.reveal .small { font-size: 0.60em; color: #ccc; }
+.reveal .highlight-box {
+  background: rgba(78,201,176,0.12);
+  border-left: 4px solid #4ec9b0;
+  padding: 0.4em 0.8em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}
+.reveal .warn-box {
+  background: rgba(255,180,0,0.12);
+  border-left: 4px solid #ffb400;
+  padding: 0.4em 0.8em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}"/>
+    <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Study Design and Analysis Guidelines for Genomic
+Scale Data</h1>
+  <h1 class="subtitle">Laying down the foundation for reproducible
+findings</h1>
+  <h2 class="author"></h2>
+</section>
+
+<section
+id="study-design-and-analysis-guidelines-for-genomic-scale-data"
+class="slide level1" data-background="#1a1a2e">
+<h1 data-background="#1a1a2e">Study Design and Analysis Guidelines for
+Genomic Scale Data</h1>
+<p><br></p>
+<blockquote>
+<p><strong>Laying down the foundation for reproducible
+findings</strong></p>
+</blockquote>
+</section>
+<section id="evolution-of-translational-omics-eto" class="slide level1">
+<h1>Evolution of Translational Omics (ETO)</h1>
+<p><strong>Lessons Learned and the Path Forward</strong> — <em>Institute
+of Medicine</em></p>
+<div class="highlight-box">
+<p><strong>“Omics”</strong> encompasses multiple molecular disciplines
+involving characterization of global sets of biological molecules: DNAs,
+RNAs, proteins, and metabolites.<br />
+Key feature: <strong>many more variables than analysis
+units</strong>.</p>
+</div>
+<ul>
+<li><strong>ETO</strong>: Recommendations for a discovery and
+development process to usher omics-based tests into the clinical
+setting</li>
+<li>Guidelines are intended to <strong>protect the public</strong> from
+dangers of flawed tests</li>
+<li>Includes <strong>information dissemination guidelines</strong> to
+promote transparency</li>
+<li>Adopting these guidelines will help our internal development
+process: avoid propagation of flawed results and catch errors early</li>
+<li>Where ETO refers to an <em>Omics-based test</em>, replace with
+<em>Omics-based results</em> — the building blocks of eventual
+tests</li>
+</ul>
+</section>
+<section id="omics-based-test-development-process" class="slide level1">
+<h1>Omics-based Test Development Process</h1>
+<p><br></p>
+<pre><code>Discovery Phase
+    └── Candidate Model Development (Training Data)
+            └── Lock-Down of Analytical &amp; Computational Procedures
+                    └── Evaluation of Candidate Omics-Based Test
+                            ├── Independent Sample Set (preferred)
+                            └── Subset of Training Set NOT used in training (less preferred)</code></pre>
+<div class="warn-box">
+<p>⚠️ <strong>All Validation Sets are Not Equal!</strong> At lock-down,
+the evaluation criteria must be specified and locked.</p>
+</div>
+</section>
+<section id="omics-based-model-development-discovery-phase"
+class="slide level1">
+<h1>Omics-based Model Development – Discovery Phase</h1>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Training Data</strong></td>
+<td>Candidate model developed on training data with fit set / test set
+or cross-validation</td>
+</tr>
+<tr class="even">
+<td><strong>2. Lock-Down</strong></td>
+<td>Lock model and evaluation procedure</td>
+</tr>
+<tr class="odd">
+<td><strong>3. Evaluate</strong></td>
+<td>Use independent sample set (preferred) or held-out training
+subset</td>
+</tr>
+<tr class="even">
+<td><strong>4. Adjust</strong></td>
+<td>If model requires adjustments, a <strong>new</strong> evaluation set
+is required</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p>Estimated Performance Level should be <strong>High</strong>, and
+<strong>Accurate!</strong><br />
+Simple enough — what could possibly go wrong?</p>
+</div>
+</section>
+<section id="threats-to-validity-of-results" class="slide level1">
+<h1>Threats to Validity of Results</h1>
+<p><strong>ASCO 2012</strong> — David F. Ransohoff, MD:</p>
+<blockquote>
+<p><em>“Bias is the main problem in non-randomized studies”</em></p>
+</blockquote>
+<p><strong>Strength of Science: Do we trust the results?</strong></p>
+<p>Threats to validity include:</p>
+<ul>
+<li>Weak or ill-specified <strong>question</strong></li>
+<li>Weak <strong>method</strong></li>
+<li><strong>Design</strong> — biased or under-powered</li>
+<li><strong>Overfitting</strong> — analysis produces “chance”
+results</li>
+</ul>
+<div class="warn-box">
+<p><strong>Bias</strong> = systematic (non-biological) differences
+between sample sets being compared.<br />
+When these biases exist, observed effects cannot be attributed to
+biology.</p>
+</div>
+</section>
+<section id="bias-example-1-ovarian-cancer-proteomics"
+class="slide level1">
+<h1>Bias Example 1 — Ovarian Cancer Proteomics</h1>
+<p><em>The Lancet, Vol. 359, No. 9306. (Feb 2002)</em></p>
+<ul>
+<li>Training set: mass spectroscopy data from <strong>50
+unaffected</strong> women and <strong>50 ovarian cancer</strong>
+patients</li>
+<li>Applied blinded to 50 cancers and 66 unaffected cases</li>
+<li><strong>Sensitivity = 100%, Specificity = 95%</strong> using Fit
+Set/Test Set — but results were <strong>not reproducible</strong></li>
+</ul>
+<p><strong>What went wrong?</strong></p>
+<div class="warn-box">
+<p>Mass spec measurements for cancer and non-cancer cases were done on
+<strong>different days</strong>, <em>prior</em> to allocation to Fit Set
+or Test Set.<br />
+→ These were <strong>not independent</strong> data sets.</p>
+</div>
+<ul>
+<li>K. Baggerly “discovered” this by looking at the chip numbers</li>
+<li>Took <strong>a year</strong> to figure it out</li>
+<li>Full disclosure of methods would have made this problem readily
+apparent</li>
+</ul>
+</section>
+<section id="bias-example-2-prostate-cancer-serum-peptidome"
+class="slide level1">
+<h1>Bias Example 2 — Prostate Cancer Serum Peptidome</h1>
+<p><em>The Journal of Clinical Investigation, Vol. 116, No. 1. (Jan
+2006)</em></p>
+<p><strong>Results:</strong> Peptide patterns are <strong>100% sensitive
+and specific</strong> to Prostate cancer</p>
+<table>
+<thead>
+<tr class="header">
+<th>Group</th>
+<th>Mean Age</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cancer</strong></td>
+<td>67</td>
+<td>100% Male</td>
+</tr>
+<tr class="even">
+<td><strong>Control</strong></td>
+<td>35</td>
+<td>42% Male</td>
+</tr>
+</tbody>
+</table>
+<div class="warn-box">
+<p>Confounding variables (age, gender) were not balanced across
+groups.<br />
+The “signal” may be demographic, not biological.</p>
+</div>
+</section>
+<section id="bias-example-3-ghi-colon-polyps" class="slide level1">
+<h1>Bias Example 3 — GHI Colon Polyps</h1>
+<p><strong>Sample Tissue Block Descriptions</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Benign</th>
+<th>Cancerous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2008</td>
+<td>60</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>2007</td>
+<td>1</td>
+<td>48</td>
+</tr>
+</tbody>
+</table>
+<div class="warn-box">
+<p>In studies based on <strong>archival specimens</strong> from tissue
+banks or hospitals — how can we exercise more control over the sample
+selection process?</p>
+</div>
+<p><strong>Full picture:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Set 1 Year</th>
+<th>Benign</th>
+<th>Cancerous</th>
+<th>Set 2 Year</th>
+<th>Benign</th>
+<th>Cancerous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2007</td>
+<td>1</td>
+<td>48</td>
+<td>≤ 2002</td>
+<td>53</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>2008</td>
+<td>60</td>
+<td>8</td>
+<td>&gt; 2002</td>
+<td>1</td>
+<td>42</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bias-example-4-affymetrix-genechip-profiles"
+class="slide level1">
+<h1>Bias Example 4 — Affymetrix Genechip Profiles</h1>
+<p><strong>Setup:</strong> Several hundred breast tumor samples
+hybridized to early Affymetrix Genechips</p>
+<ul>
+<li>Unsupervised clustering → <strong>2 very distinct
+clusters</strong></li>
+<li>Gene signatures driving the clusters were <strong>not
+interpretable</strong></li>
+</ul>
+<p><strong>Possible explanation:</strong></p>
+<div class="warn-box">
+<p>For 2 weeks prior to year-end, production ran <strong>7
+days/week</strong> to meet bonus goals.<br />
+The two clusters corresponded to samples processed on <strong>two
+consecutive weekends</strong>.</p>
+</div>
+<p><em>“The problem with your manufacturing process is your
+management.”</em> — Deming to Ford</p>
+</section>
+<section id="batch-effects-a-significant-threat-to-omics-validity"
+class="slide level1">
+<h1>Batch Effects: A Significant Threat to Omics Validity</h1>
+<ul>
+<li>Batch effects on <strong>microarray data</strong> have been well
+documented</li>
+<li>Batch effects in <strong>RNASeq data</strong> are also being
+addressed</li>
+<li>These can be mitigated by <strong>proper sample processing
+designs</strong></li>
+<li>Batch effects may be an <strong>even bigger threat</strong> in
+mutation profiling:
+<ul>
+<li>Patterns of sequencing errors found in one study (Nakamura 2011) not
+observed in next (Minoche 2011)</li>
+<li>Suggests including <strong>several independent sequencing
+datasets</strong> in analysis</li>
+</ul></li>
+</ul>
+<p><strong>The plethora of methods is astounding:</strong><br />
+GATK, Samtools, VarScan, SNVMix, SERVIC4E, CrossSampleErrEst, SNVer,
+CRISP, Atlas-SNP2, and many more</p>
+<div class="highlight-box">
+<p>The key to valid, generalizable results: <strong>sound sample
+selection</strong>, careful processing, and careful data analysis to
+guard against overfitting.</p>
+</div>
+</section>
+<section id="eto-steps-to-ensure-validity-of-results"
+class="slide level1">
+<h1>ETO: Steps to Ensure Validity of Results</h1>
+<h2 id="data-quality-assessment">1. Data Quality Assessment</h2>
+<ul>
+<li>Crucial first step — includes general and application-specific
+assessments</li>
+<li>A <strong>data quality report</strong> must be produced and examined
+before proceeding</li>
+<li>QA is an <em>active, engaging process</em> — not just a routine to
+check off</li>
+</ul>
+<h2 id="computational-model-development">2. Computational Model
+Development</h2>
+<ul>
+<li><strong>Overfitting</strong> is a major concern: performance will be
+great on training set, but poor on other samples</li>
+</ul>
+<h2 id="confirmation-on-an-independent-evaluation-dataset">3.
+Confirmation on an Independent Evaluation Dataset</h2>
+<ul>
+<li>A computational model’s ultimate utility is measured by its
+<strong>performance on future samples</strong></li>
+</ul>
+<h2 id="documentation">4. Documentation</h2>
+<ul>
+<li>Data and fully specified computational procedures should be stored
+in a <strong>protected area under version control</strong></li>
+</ul>
+</section>
+<section id="trainingevaluation-set-separation" class="slide level1">
+<h1>Training–Evaluation Set Separation</h1>
+<ul>
+<li>Evaluation set should be <strong>representative of future
+samples</strong> (tissue type, stage, etc.) and ideally <strong>fully
+independent</strong> of the Training set</li>
+<li>When not possible, split dataset into Training and Validation
+subsets <strong>at random</strong></li>
+<li>Some mutation analysis developers split by <strong>genomic
+region</strong> — this is the <strong>least desirable</strong>
+split</li>
+</ul>
+<p><strong>Avoiding Overfitting:</strong></p>
+<ul>
+<li>Training set can be randomly split into Fit set and Test set, or
+<strong>cross-validation</strong> can be used</li>
+<li>Test set / CV performance assessments are usually
+<strong>optimistic</strong></li>
+<li>CV estimates can suffer from <strong>bias and high-variance</strong>
+<em>(Elements of Statistical Learning)</em></li>
+</ul>
+<div class="warn-box">
+<p>Fit and test sets share similarities that may not be shared by future
+samples processed later in time or from different populations.</p>
+</div>
+</section>
+<section id="eto-best-practices-for-the-discovery-phase"
+class="slide level1">
+<h1>ETO – Best Practices for the Discovery Phase</h1>
+<div class="highlight-box">
+<p><strong>Confirm results on one or more independent sets of
+samples</strong><br />
+<em>Oncotype DX example</em>: Recurrence Score validated using multiple
+independent datasets (Paik et al., 2004) from different trials at
+multiple institutions.</p>
+</div>
+<ul>
+<li><p><strong>Data used for analyses</strong> should be documented and
+made available</p></li>
+<li><p><strong>Computer code and fully specified computational
+procedures</strong> should be documented and made available</p></li>
+<li><p><strong>Omics-based test or procedure</strong> should be defined
+precisely, including:</p>
+<ul>
+<li>Lab protocols</li>
+<li>Computational procedures</li>
+<li>Intended uses</li>
+</ul></li>
+</ul>
+</section>
+<section id="summary-laying-down-the-foundation" class="slide level1">
+<h1>Summary: Laying Down the Foundation</h1>
+<ul>
+<li>Recommendations come from <strong>basic scientific
+principles</strong> and are fairly obvious</li>
+<li>As we strive to accelerate development, we incur higher risks of
+errors — we should simultaneously make the process <strong>more robust
+and rigorous</strong></li>
+<li>Most errors or flawed results are based on <strong>faulty
+assumptions</strong></li>
+<li>It is <strong>Good Quality Data</strong> and <strong>Careful Data
+Analysis</strong> that is going to save the day</li>
+<li>It is <strong>everybody’s responsibility</strong> to ensure that
+sensible methods are used</li>
+</ul>
+<div class="warn-box">
+<p>“Maybe it is because these principles are so basic that they are
+easily and often ignored?”</p>
+</div>
+</section>
+<section id="emerging-omics-data-analysis-techniques"
+class="slide level1">
+<h1>Emerging Omics Data Analysis Techniques</h1>
+<p><br></p>
+<div class="highlight-box">
+<p><strong>Extremely high data dimensionality</strong> gives rise to
+extreme risk of <strong>overfitting</strong> computational models.</p>
+</div>
+<p><br></p>
+<blockquote>
+<p>Analyzing several <strong>independent sequencing data sets</strong>
+is crucial to overcoming these risks.</p>
+</blockquote>
+</section>
+<section id="personalized-oncology-biomarkers-as-drugs"
+class="slide level1">
+<h1>“Personalized” Oncology: Biomarkers as Drugs</h1>
+<p><strong>Daniel F. Hayes, MD:</strong></p>
+<blockquote>
+<p><em>“A bad tumor marker is as harmful as a bad drug!”</em></p>
+</blockquote>
+<p><strong>Undervalue of Tumor Biomarkers — a Vicious
+Cycle:</strong></p>
+<pre><code>Marker Utility is Poorly Valued
+  → Low Funding for Research
+    → Low Level of Evidence
+      → Higher Skepticism &amp; Few Recommendations for Clinical Use
+        → Marker Utility is Poorly Valued ...</code></pre>
+<p><strong>Way out of the vicious cycle:</strong></p>
+<ul>
+<li>Studies of convenience: <em>“I have lunch with a colleague, I happen
+to have samples in a freezer…”</em> — 98% of BM discovery studies
+<em>(ok to generate hypotheses — sometimes)</em></li>
+<li>Apply the <strong>same level of evidence</strong> required for drugs
+to tumor biomarker discovery: design a <strong>prospective
+study</strong> with protocol and analysis plan</li>
+</ul>
+</section>
+<section id="tmugs-levels-of-evidence" class="slide level1">
+<h1>TMUGS: Levels of Evidence</h1>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>I</strong></td>
+<td>Prospectively designed studies with written protocol — Marker is
+<strong>Primary Objective</strong></td>
+</tr>
+<tr class="even">
+<td><strong>II</strong></td>
+<td>Prospective — Marker is <strong>Secondary Objective</strong>
+<em>(Most Tumor Marker Studies)</em></td>
+</tr>
+<tr class="odd">
+<td><strong>III</strong></td>
+<td>Retrospective, Outcomes, <strong>Multivariate</strong> Analysis</td>
+</tr>
+<tr class="even">
+<td><strong>IV</strong></td>
+<td>Retrospective, Outcomes, <strong>Univariate</strong> Analysis</td>
+</tr>
+<tr class="odd">
+<td><strong>V</strong></td>
+<td>Retrospective, Correlation with Other Marker, <strong>No
+Outcomes</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p>The <strong>prospective-retrospective design</strong> using archived
+specimens offers a practical middle ground.</p>
+</div>
+</section>
+<section id="sample-selection-and-handling" class="slide level1">
+<h1>Sample Selection and Handling</h1>
+<p><strong>(Un)Common Sense Examples</strong></p>
+<ul>
+<li><p>Tests should be developed on samples <strong>properly selected
+from the population</strong> in which the test will be applied</p></li>
+<li><p><strong>Sample processing</strong> — order, machine, lane, etc. —
+should be fully specified and optimized where possible</p></li>
+<li><p>When data are used to <strong>tune</strong> how the data are
+manipulated to arrive at test results, those data <strong>cannot be used
+to evaluate</strong> how the test will perform with other data</p></li>
+</ul>
+</section>
+<section id="references" class="slide level1">
+<h1>References</h1>
+<div class="small">
+<ul>
+<li>Baggerly, K.A. et al. (2004). Reproducibility of SELDI-TOF protein
+patterns in serum. <em>Bioinformatics</em>, 20(5):777–785.</li>
+<li>Baggerly, K.A. et al. (2009). Deriving Chemosensitivity from Cell
+Lines: Forensic Bioinformatics. <em>Annals of Applied Statistics</em>,
+3(4):1309–1334.</li>
+<li>Hastie, T., Tibshirani, R. and Friedman, J. (2009). <em>The Elements
+of Statistical Learning</em>, Springer, 2nd ed.</li>
+<li>Hayes, D.F. et al. (1996). Tumor marker utility grading system.
+<em>J. Natl. Cancer Inst.</em>, 88:1456–1466.</li>
+<li>Micheel, C.M., Nass, S.J. and Omenn, G.S. (2012). <em>Evolution of
+Translational Omics</em>. Institute of Medicine.</li>
+<li>Petricoin, E.F. et al. (2002). Use of proteomic patterns in serum to
+identify ovarian cancer. <em>The Lancet</em>, 359(9306):572–577.</li>
+<li>Simon, R. et al. (2003). Pitfalls in the Use of DNA Microarray Data.
+<em>JNCI</em>, 95(1):14–18.</li>
+<li>Varma, S. and Simon, R. (2006). Bias in error estimation when using
+cross-validation. <em>BMC Bioinformatics</em>, 7:91.</li>
+<li>Villanueva, J. et al. (2006). Differential exoprotease activities
+confer tumor-specific serum peptidome patterns. <em>JCI</em>,
+116(1):271–284.</li>
+</ul>
+<p><strong>Batch Effects:</strong></p>
+<ul>
+<li>Leek, J.T. et al. (2010). Tackling batch effects in high-throughput
+data. <em>Nat Rev Genet</em>, 11(10):733–739.</li>
+<li>Gagnon-Bartsch &amp; Speed (2012). Using control genes to correct
+for unwanted variation. <em>Biostatistics</em>, 13(3):539–52.</li>
+<li>Auer, P.L. &amp; Doerge, R.W. (2010). Statistical Design and
+Analysis of RNA Sequencing Data. <em>Genetics</em>.</li>
+</ul>
+</div>
+<!-- To run
+# nohup Rscript -e "knitr::knit2html('OmicsTests.Rmd')" > OmicsTests.log  &
+
+# Or
+# nohup Rscript -e "rmarkdown::render('OmicsTests.Rmd')" > OmicsTests.log  &
+
+-->
+</section>
+    </div>
+  </div>
+
+  <script src="site_libs/reveal.js-4.2.1/dist/reveal.js"></script>
+  
+  <!-- reveal.js plugins -->
+  
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+        // Display a presentation progress bar
+        progress: true,
+        // Can be used to limit the contexts in which the slide number appears
+        showSlideNumber: 'all',
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+        // Push each slide change to the browser history
+        // Implies `hash: true`
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+        // The display mode that will be used to show slides
+        display: 'block',
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+
+
+        // Optional reveal.js plugins
+        plugins: [
+        ]
+      });
+
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,10 @@
+Omics-based test development process, highlighting the discovery phase.
+In the discovery phase, a candidate test is developed, precisely defined,
+and confirmed. The computational procedures developed in this phase should
+be fully specified and locked down through all subsequent development steps.
+Ideally, confirmation should take place on an independent sample set.
+<span style="color: red">Red</span>Under exceptional circumstances it
+may be necessary to move into the test validation phase without first
+confirming the candidate test on an independent sample set
+if using an independent test set in the discovery phase is not possible</span>,
+but this increases the risk of test failure in the validation phase. Statistics and bioinformatics validation occurs throughout the discovery and test validation stage as well as the stage for evaluation of clinical utility and use.

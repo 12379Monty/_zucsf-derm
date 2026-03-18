@@ -1,0 +1,91 @@
+PMID- 31114909
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20200225
+LR  - 20200309
+IS  - 1362-4962 (Electronic)
+IS  - 0305-1048 (Print)
+IS  - 0305-1048 (Linking)
+VI  - 47
+IP  - 12
+DP  - 2019 Jul 9
+TI  - A new normalization for Nanostring nCounter gene expression data.
+PG  - 6073-6083
+LID - 10.1093/nar/gkz433 [doi]
+AB  - The Nanostring nCounter gene expression assay uses molecular barcodes and single 
+      molecule imaging to detect and count hundreds of unique transcripts in a single 
+      reaction. These counts need to be normalized to adjust for the amount of sample, 
+      variations in assay efficiency and other factors. Most users adopt the 
+      normalization approach described in the nSolver analysis software, which involves 
+      background correction based on the observed values of negative control probes, a 
+      within-sample normalization using the observed values of positive control probes 
+      and normalization across samples using reference (housekeeping) genes. Here we 
+      present a new normalization method, Removing Unwanted Variation-III (RUV-III), 
+      which makes vital use of technical replicates and suitable control genes. We also 
+      propose an approach using pseudo-replicates when technical replicates are not 
+      available. The effectiveness of RUV-III is illustrated on four different 
+      datasets. We also offer suggestions on the design and analysis of studies 
+      involving this technology.
+CI  - © The Author(s) 2019. Published by Oxford University Press on behalf of Nucleic 
+      Acids Research.
+FAU - Molania, Ramyar
+AU  - Molania R
+AD  - Translational Genomics and Epigenomics Laboratory, Olivia Newton-John Cancer 
+      Research Institute, Heidelberg, Victoria 3084, Australia.
+AD  - Bioinformatics Division, Walter and Eliza Hall Institute of Medical Research, 
+      Parkville, Victoria 3052, Australia.
+AD  - Department of Medicine, The University of Melbourne, Austin Health, Heidelberg, 
+      Victoria 3084, Australia.
+FAU - Gagnon-Bartsch, Johann A
+AU  - Gagnon-Bartsch JA
+AD  - Department of Statistics, University of Michigan, Ann Arbor, Michigan, MI 48109, 
+      USA.
+FAU - Dobrovic, Alexander
+AU  - Dobrovic A
+AD  - Translational Genomics and Epigenomics Laboratory, Olivia Newton-John Cancer 
+      Research Institute, Heidelberg, Victoria 3084, Australia.
+AD  - School of Cancer Medicine and Molecular Cancer Prevention Program, La Trobe 
+      University, Bundoora, Victoria 3086, Australia.
+AD  - Department of Clinical Pathology, The University of Melbourne, Parkville, 
+      Victoria 3010, Australia.
+AD  - Department of Surgery, The University of Melbourne, Austin Health, Heidelberg, 
+      Victoria, 3084, Australia.
+FAU - Speed, Terence P
+AU  - Speed TP
+AD  - Bioinformatics Division, Walter and Eliza Hall Institute of Medical Research, 
+      Parkville, Victoria 3052, Australia.
+AD  - Department of Mathematics and Statistics, University of Melbourne, Victoria 3010, 
+      Australia.
+LA  - eng
+PT  - Journal Article
+PT  - Research Support, Non-U.S. Gov't
+PL  - England
+TA  - Nucleic Acids Res
+JT  - Nucleic acids research
+JID - 0411011
+SB  - IM
+MH  - Adenocarcinoma of Lung/genetics/metabolism
+MH  - Dendritic Cells/metabolism
+MH  - Gene Expression Profiling/*methods
+MH  - Humans
+MH  - Inflammatory Bowel Diseases/genetics/metabolism
+MH  - Lung Neoplasms/genetics/metabolism
+MH  - Lymphocyte Activation/genetics
+MH  - Single Molecule Imaging
+PMC - PMC6614807
+EDAT- 2019/05/23 06:00
+MHDA- 2020/02/26 06:00
+PMCR- 2019/05/22
+CRDT- 2019/05/23 06:00
+PHST- 2019/05/07 00:00 [accepted]
+PHST- 2019/04/25 00:00 [revised]
+PHST- 2018/09/23 00:00 [received]
+PHST- 2019/05/23 06:00 [pubmed]
+PHST- 2020/02/26 06:00 [medline]
+PHST- 2019/05/23 06:00 [entrez]
+PHST- 2019/05/22 00:00 [pmc-release]
+AID - 5494770 [pii]
+AID - gkz433 [pii]
+AID - 10.1093/nar/gkz433 [doi]
+PST - ppublish
+SO  - Nucleic Acids Res. 2019 Jul 9;47(12):6073-6083. doi: 10.1093/nar/gkz433.

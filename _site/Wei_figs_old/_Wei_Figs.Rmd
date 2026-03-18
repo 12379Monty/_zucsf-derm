@@ -1,0 +1,134 @@
+---
+title: "Non-invasive Multi-Classifier for Diagnosis of Common Skin Cancers"
+subtitle: "via Adhesive Tape Sampling"
+author: ""
+date: ""
+output:
+  revealjs::revealjs_presentation:
+    theme: black
+    highlight: pygments
+    center: false
+    transition: fade
+    slide_level: 1
+    self_contained: true
+    css: wei_style.css
+---
+
+# Study Overview {data-background="#111"}
+
+## Lesion Types
+
+**Melanocytic lesions**
+
+- Nevus (benign)
+- Melanoma (cancer)
+
+**Keratinocytic lesions**
+
+- Actinic keratosis (AK, benign pre-cancerous)
+- Squamous cell cancer (SCC)
+- Basal cell cancer (BCC)
+
+## Table 1: Patient and Lesion Summary Characteristics
+
+<img src="fig_1.png" style="width:90%; max-height:42vh; object-fit:contain;" />
+
+| AK (N=73) | BCC (N=63) | Melanoma (N=75) | Nevus (N=83) | SCC (N=90) | **Total (N=384)** |
+|-----------|-----------|----------------|-------------|-----------|-----------------|
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+---
+
+# Figure 1: Tape Collected miRNA Reproducibility and Stability
+
+<img src="fig_2.png" style="width:100%; max-height:58vh; object-fit:contain;" />
+
+<div class="caption">
+**A)** Average Spearman correlation for miRNA collected by serial tape sampling of single nevi on different individuals.
+**B)** Read length distribution: FFPE (pink) vs. tape sampling (blue) miRNA.
+**C)** Sequencing mapping composition -- tape samples show higher miRNA reads and fewer adapter dimers than FFPE.
+</div>
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+---
+
+# Figure 2: Model Development and Performance
+
+<img src="fig_3.png" style="width:100%; max-height:58vh; object-fit:contain;" />
+
+<div class="caption">
+**B)** AUROC cross-validation on training data.
+**C)** Precision-recall curve, cross-validation on training data.
+**D)** AUROC on hold-out data.
+**E)** Precision-recall curve on hold-out data.
+AK = actinic keratosis; SCC = squamous cell cancer; BCC = basal cell cancer.
+</div>
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+---
+
+# Figure 4: Model Performance vs. Clinicians
+
+<img src="fig_4.png" style="width:100%; max-height:58vh; object-fit:contain;" />
+
+<div class="caption">
+Sensitivity and specificity for the classifier vs. experienced dermatologists (>2 yrs), inexperienced dermatologists (<2 yrs), and PCPs with (blue) or without (green) a dermatoscope.
+**A/B)** Melanocytic samples (nevus, melanoma).
+**C/D)** Keratinocytic samples (AK, SCC, BCC).
+</div>
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+---
+
+# Supplement Figure 2: Cross-Validation F1 by Sample Characteristics
+
+<img src="fig_5.png" style="width:100%; max-height:58vh; object-fit:contain;" />
+
+<div class="caption">
+F1 score compared across sample subsets. No significant difference observed by:
+**A)** Patient sex (p=0.786)  **B)** Lesion size (p=0.160)  **C)** Tape storage duration (p=0.931)  **D)** Tape collection site (p=0.322).
+P values by T-test (two groups) or ANOVA (three groups).
+</div>
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+---
+
+# Supplement Figure 3: Differential miRNA Expression in Tape vs. Public Datasets
+
+<img src="fig_6.png" style="width:100%; max-height:58vh; object-fit:contain;" />
+
+<div class="caption">
+miR-10b-5p and miR-211-3p are differentially expressed in a similar manner in both tape samples and reanalyzed public FFPE datasets when comparing melanocytic and keratinocytic lesions.
+</div>
+
+<div class="annotation">
+**Annotations:**
+</div>
+
+
+
+
+
+<!-- To run
+# nohup Rscript -e "knitr::knit2html('Wei_Figs.Rmd')" > Wei_Figs.log  &
+    
+# Or
+# nohup Rscript -e "rmarkdown::render('Wei_Figs.Rmd')" > Wei_Figs.log  &
+
+-->
+

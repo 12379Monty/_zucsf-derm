@@ -1,0 +1,44 @@
+
+Rendering: ./index.Rmd
+1/19                                     
+2/19 [setup]                             
+3/19                                     
+4/19 [index-GlobalOptions]               
+5/19                                     
+6/19 [index-Prelims]                     
+7/19                                     
+8/19 [meet-20250310-disc-rec-cap]        
+9/19                                     
+10/19 [meet-20250310-disc-rec]            
+11/19                                     
+12/19 [meet-20250310-disc-no-confirm-cap ]
+13/19                                     
+14/19 [meet-20250310-disc-no-confirm]     
+15/19                                     
+16/19 [meet-20250310-disc-iterative]      
+17/19                                     
+18/19 [unnamed-chunk-1]                   
+/usr/local/bin/pandoc +RTS -K512m -RTS index.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output index.html --lua-filter /Library/Frameworks/R.framework/Versions/4.4-x86_64/Resources/library/bookdown/rmarkdown/lua/custom-environment.lua --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/latex-div.lua --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/table-classes.lua --wrap preserve --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 2 --template /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --include-before-body /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//Rtmp6Eg51D/rmarkdown-str69751e54120.html --variable navbar=1 --variable theme=bootstrap --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//Rtmp6Eg51D/rmarkdown-str6972216c5e1.html --variable code_folding=hide --variable source_embed=index.Rmd --include-after-body /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//Rtmp6Eg51D/file6975194843.html --variable code_menu=1 --citeproc 
+
+Rendering: ./OmicsTests_Old.Rmd
+1/1
+/usr/local/bin/pandoc +RTS -K512m -RTS OmicsTests_Old.knit.md --to revealjs --from markdown+autolink_bare_uris+tex_math_single_backslash-implicit_figures --output OmicsTests_Old.html --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/latex-div.lua --lua-filter /Users/fcollin/Library/R/x86_64/4.4/library/rmarkdown/rmarkdown/lua/table-classes.lua --template /Users/fcollin/Library/R/x86_64/4.4/library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 1 --variable theme-dark --variable theme=night --variable transition=slide --variable backgroundTransition=fade --variable history=true --css '.reveal h1 { font-size: 1.2em; color: #4ec9b0; }
+.reveal h2 { font-size: 1.0em; color: #9cdcfe; }
+.reveal ul { font-size: 0.65em; }
+.reveal p  { font-size: 0.65em; }
+.reveal table { font-size: 0.65em; }
+.reveal .small { font-size: 0.60em; color: #ccc; }
+.reveal .highlight-box {
+  background: rgba(78,201,176,0.12);
+  border-left: 4px solid #4ec9b0;
+  padding: 0.4em 0.8em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}
+.reveal .warn-box {
+  background: rgba(255,180,0,0.12);
+  border-left: 4px solid #ffb400;
+  padding: 0.4em 0.8em;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}' --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /var/folders/jk/d24lm6n944q5y650lph85m7w0000gp/T//Rtmp6Eg51D/rmarkdown-str6973ed72952.html --variable revealjs-url=site_libs/reveal.js-4.2.1 --highlight-style pygments 

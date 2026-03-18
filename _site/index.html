@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Francois Collin" />
+
+
+<title>Diagnosis of common skin cancers</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Diagnosis of common skin cancers</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Diagnosis of common skin cancers</h1>
+<h4 class="author">Francois Collin</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#background" id="toc-background"><span class="toc-section-number">1</span> Background</a></li>
+<li><a href="#data-qc---sample-and-run-validity-criteria" id="toc-data-qc---sample-and-run-validity-criteria"><span class="toc-section-number">2</span> Data QC - Sample and Run Validity Criteria</a>
+<ul>
+<li><a href="#on-controls" id="toc-on-controls"><span class="toc-section-number">2.1</span> On controls</a></li>
+</ul></li>
+<li><a href="#model-selection" id="toc-model-selection"><span class="toc-section-number">3</span> Model Selection</a></li>
+<li><a href="#assay-lock" id="toc-assay-lock"><span class="toc-section-number">4</span> Assay Lock</a></li>
+<li><a href="#nci-iom-guidelines" id="toc-nci-iom-guidelines">NCI IOM Guidelines</a></li>
+<li><a href="#discovery-phase-workflows" id="toc-discovery-phase-workflows"><span class="toc-section-number">5</span> Discovery Phase Workflows</a>
+<ul>
+<li><a href="#recommended-workflow" id="toc-recommended-workflow"><span class="toc-section-number">5.1</span> Recommended Workflow</a></li>
+<li><a href="#no-confirmation-workflow" id="toc-no-confirmation-workflow"><span class="toc-section-number">5.2</span> No-Confirmation Workflow</a></li>
+<li><a href="#iterative-model-build-up-workflow" id="toc-iterative-model-build-up-workflow"><span class="toc-section-number">5.3</span> Iterative Model Build Up Workflow</a></li>
+<li><a href="#validation-figures" id="toc-validation-figures">Validation Figures</a></li>
+</ul></li>
+<li><a href="#references" id="toc-references"><span class="toc-section-number">6</span> References</a></li>
+</ul>
+</div>
+
+<!-- 
+
+<p style="background-color: yellow; padding: 5px;">
+  <span style="font-weight: bold;">⚠️ Work in Progress:</span> This content is incomplete.
+</p>
+
+-->
+<!-- ######################################################################## -->
+<!-- ######################################################################## -->
+<p><br/></p>
+<div id="background" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Background</h1>
+<p>
+<p/>
+<ul>
+<li>The present contains follow-up remarks for 2025-03-10 meeting
+<ul>
+<li>Maria Wei, Vince Wu, Francois Collin (Me)</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>The remarks are procedural and may not apply, but they are based on my
+experience (mostly implementing the ideas of others) and have always
+resulted in a smooth path from concept to completion.
+<ul>
+<li><em>Development and Validation of a Multiclass Model Defining Molecular Archetypes of
+Kidney Transplant Rejection</em> <span class="citation">[<a href="#ref-Zhang:2024aa">1</a>]</span> is an example of a test which was
+developed and validated within 18 months. I was responsible for all design and
+analysis.</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>The purpose of the 2025-03-10 meeting was to discuss some validation data
+and next steps, but I an not prepared to advise on the validation of a test
+I don’t fully understand. It may also be too early to start a
+formal validation process which can only begin after assay lock.
+<ul>
+<li>There are different notions of <em>validation</em>. The formal validation I am
+thinking about here is a validation report which will be filed with a regulatory
+agency.<br />
+</li>
+<li>“Validation” outside of the regulatory sphere of influence can mean anything
+from the tabulation of results without a formal analysis plan to analysis made according
+to a pre-specified plan that has been IRB approved and locked.</li>
+</ul></li>
+</ul>
+<!--
+<p><p/>
+* Now is a good time to plan for validation by making sure an appropriate
+number of samples of the right sort will be available for the validation study.
+If the samples to be used for validation are already on-hand, they should be
+sequestered as they cannot be examined in any way before being used in the
+validation study.
+-->
+<p>
+<p/>
+<ul>
+<li>Before validation begins, the Discovery Phase must be completed
+and the assay locked. The product of the Discovery Phase is a fully
+specified test:
+<ul>
+<li>how the test is carried out,</li>
+<li>what are the sample analyzability conditions.
+<ul>
+<li>analyzability conditions, or inclusion criteria, come from the Data QC step.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br/></p>
+</div>
+<div id="data-qc---sample-and-run-validity-criteria" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Data QC - Sample and Run Validity Criteria</h1>
+<ul>
+<li><p><strong>Before anything else happens</strong>, the nature of the data used by
+the test being developed needs to be fully understood. A data QC procedure
+customized to the specific requirements of the
+test in development should be finalized and locked before being applied
+to runs that are part of the test development.</p></li>
+<li><p>The samples which are used to fit and validate a model are in many cases more
+impactful on the ultimate performance of an omic-based test than the
+selected model itself. It is therefore critically important to apply accurate,
+statistically sound Inclusion/Exclusion criteria when selecting samples
+for development and validation (FDA (2019) <span class="citation">[<a href="#ref-FDA:2019aa">2</a>]</span>).</p></li>
+<li><p>The success of this selection or identification process depends on
+having established a comprehensive QC procedure, customized to the
+specific needs of the test under consideration.
+The metrics in Melania et al. (2019) <span class="citation">[<a href="#ref-Molania:2019aa">3</a>]</span> to assess
+normalization can also be used for QC.</p></li>
+<li><p>Through analysis we can determine empirically which are the best metrics to use to identify
+which <strong>specimens</strong> and <strong>analytical runs</strong> are to be excluded.
+Inclusions and exclusions must be <strong>pre-specified</strong> as part of the locked procedure.</p></li>
+</ul>
+<!--
+* Rules for inclusion/exclusion must be derived empirically from data
+collected in the appropriate **operational context** and should be statistically
+justifiable.
+-->
+<ul>
+<li>This process must be fully documented.</li>
+</ul>
+<p><br/></p>
+<div id="on-controls" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> On controls</h2>
+<p>
+<p/>
+<ul>
+<li>There are various sorts:
+<ul>
+<li>samples: positive and negative differential expression controls</li>
+<li>features (miRNAS): stably expressed</li>
+<li>synthetic miRNA spike-ins from commercial</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>Control strategies can be implemenred such that various <strong>truths</strong> are built
+in every run and can be summuned for QC and normalization.</li>
+</ul>
+<p><br/></p>
+</div>
+</div>
+<div id="model-selection" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Model Selection</h1>
+<ul>
+<li>The model selection process should be fully documented to ensure reproducibility.</li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>The criteria used to score models must be clearly stated as part of the documentation.
+<ul>
+<li>the model with the highest cross-validated accuracy estimate is
+<strong>not necessarily the best</strong> model to choose
+<ul>
+<li>many models may achieve the same accuracy after accounting for estimation error</li>
+<li>other factors may be equally important:
+<ul>
+<li>interpretability</li>
+<li>reproducibility</li>
+<li>robustness to fitting set selection</li>
+<li>in a multinomial context, not all error are equal</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>In a multi-site context it is important to have a representative set of sites in
+the fitting set.</li>
+</ul>
+<p><br/></p>
+</div>
+<div id="assay-lock" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Assay Lock</h1>
+<p>A key component of a diagnostic test development
+process is Assay Lock.</p>
+<ul>
+<li><p>Validation only starts <strong>after assay lock</strong>.</p></li>
+<li><p><strong>Lock</strong> means that the complete end-to-end procedure is frozen.
+It must occur <em>before</em> any validation begins</p></li>
+<li><p>The scope includes: specimen handling, instrument acquisition,
+and all data processing from the instruments output to the final result</p></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>Every step must be <strong>fully documented</strong> at lock
+<ul>
+<li>this includes how the model was selected, all QC
+metrics and procedures, and acceptance/inclusion criteria.</li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>Any post-lock change constitutes a protocol deviation, and may
+invalidate subsequent validation data</li>
+</ul>
+<p><br/></p>
+<p><br/></p>
+</div>
+<div id="nci-iom-guidelines" class="section level1 unnumbered">
+<h1>NCI IOM Guidelines</h1>
+<ul>
+<li>Following several cases of <strong>flawed products making it into the clinic</strong>,
+the National Cancer Institute (NCI) requested that the Institute of Medicine (IOM)
+form a committee to <em>develop recommendations to clarify and improve the pathway
+from discovery to first use of omics-based tests in a clinical trials</em>.</li>
+</ul>
+<blockquote>
+<p>This report identifies best practices to enhance development, evaluation,
+and translation of omics-based tests while simultaneously reinforcing
+steps to ensure that these tests are appropriately assessed for scientific
+validity before they are used to guide patient treatment in clinical trials.</p>
+</blockquote>
+<p>
+<p/>
+<ul>
+<li>Links to handy resources:
+<ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/24872966/">White paper - Evolution of Translational Omics: Lessons Learned and the Path Forward</a>
+<ul>
+<li>Guidelines for the Development of Omic Based Products</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li><a href="OmicsTests_files/_OmicsTests.html">Summary slides</a></li>
+</ul>
+<p><br/></p>
+</div>
+<div id="discovery-phase-workflows" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Discovery Phase Workflows</h1>
+<p>For the discovery phase, there are three common development workflows.</p>
+<p><br/></p>
+<div id="recommended-workflow" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Recommended Workflow</h2>
+<p>The recommended workflow is depicted in Figure <a href="#fig:meet-20250310-disc-rec">5.1</a>.</p>
+<pre class="r"><code>CAPTION &lt;-  paste(
+c(&quot;Omics-based test development process: recommended discovery phase&quot;))</code></pre>
+<div class="figure"><span style="display:block;" id="fig:meet-20250310-disc-rec"></span>
+<img src="OmicsTests_files/Omics-based_Test_Development_Process.png" alt="Omics-based test development process: recommended discovery phase" width="1037" />
+<p class="caption">
+Figure 5.1: Omics-based test development process: recommended discovery phase
+</p>
+</div>
+<p><br/></p>
+<div id="note-on-the-confirmation-step" class="section level3 unnumbered">
+<h3>Note on the Confirmation Step</h3>
+<ul>
+<li><p>In the flowchart in Figure <a href="#fig:meet-20250310-disc-rec">5.1</a>,
+the recommended analysis steps includes a confirmation step
+which is run prior to any formal validation run.</p></li>
+<li><p>The confirmation step can provide added confidence in the expected
+results from the validation runs, or may indicate that some tweak to the
+test procedure is needed.</p></li>
+</ul>
+<p>
+<p/>
+<ul>
+<li>The use of a confirmation step is highly recommended unless the test data
+has been extensively studied in the past and there would be little to
+learn from the results.
+<ul>
+<li>in my experience the need for a separate confirmation step can
+be assessed on a case by case basis.</li>
+<li>if the training data are complex and representative of the target
+population, and the model well understood, and the out-of-fold error rate
+similar to the test subset error rate, then the risk of encountering
+unexpected and divergent results at validation is limit</li>
+</ul></li>
+</ul>
+<p><br/></p>
+</div>
+</div>
+<div id="no-confirmation-workflow" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> No-Confirmation Workflow</h2>
+<ul>
+<li><p>The No-Confirmation workflow is depicted in Figure <a href="#fig:meet-20250310-disc-no-confirm">5.2</a>.</p></li>
+<li><p>The No-Confirmation workflow can be risky, unless the test data are
+familiar.</p></li>
+</ul>
+<p>itw</p>
+<pre class="r"><code>CAPTION &lt;-  paste(
+c(&quot;Omics-based test development process: no-confirmation discovery phase workflow&quot;))</code></pre>
+<div class="figure"><span style="display:block;" id="fig:meet-20250310-disc-no-confirm"></span>
+<img src="OmicsTests_files/Omics-based_Test_Development_Process_no_confirm.png" alt="Omics-based test development process: no-confirmation discovery phase workflow" width="1037" />
+<p class="caption">
+Figure 5.2: Omics-based test development process: no-confirmation discovery phase workflow
+</p>
+</div>
+<p><br/></p>
+</div>
+<div id="iterative-model-build-up-workflow" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Iterative Model Build Up Workflow</h2>
+<p>The Iterative Model Build Up workflow is depicted in Figure <a href="#fig:meet-20250310-disc-iterative">5.3</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:meet-20250310-disc-iterative"></span>
+<img src="OmicsTests_files/Omics-based_Test_Development_Process_iterative.png" alt="Omics-based test development process: no-confirmation discovery phase workflow" width="1037" />
+<p class="caption">
+Figure 5.3: Omics-based test development process: no-confirmation discovery phase workflow
+</p>
+</div>
+<p><br/></p>
+</div>
+<div id="validation-figures" class="section level2 unnumbered">
+<h2>Validation Figures</h2>
+<ul>
+<li><a href="Wei_figs/Wei_figs.html">Comments</a></li>
+</ul>
+<p><br/></p>
+</div>
+</div>
+<div id="references" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> References</h1>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Zhang:2024aa" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Zhang, H., Haun, R.S., Collin, F., Cassol, C., Napier, J.O.H., Wilson, J., Hassen, S., Ararat, K., Boils, C., Messias, N., <em>et al.</em> (2024). <a href="https://doi.org/10.1016/j.labinv.2023.100304">Development and validation of a multiclass model defining molecular archetypes of kidney transplant rejection: A large cohort study of the banff human organ transplant gene expression panel.</a> Lab Invest <em>104</em>, 100304.</div>
+</div>
+<div id="ref-FDA:2019aa" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Food, U.S., and Administration., D. (2026). Considerations for design, development, and analytical validation of next generation sequencing (NGS)–based in vitro diagnostics (IVDs) intended to aid in the diagnosis of suspected germline diseases: Guidance for stakeholders and food and drug administration staff. Available at: <a href="https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101734092-pdf">https://collections.nlm.nih.gov/catalog/nlm:nlmuid-101734092-pdf</a>.</div>
+</div>
+<div id="ref-Molania:2019aa" class="csl-entry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Molania, R., Gagnon-Bartsch, J.A., Dobrovic, A., and Speed, T.P. (2019). <a href="https://doi.org/10.1093/nar/gkz433">A new normalization for nanostring nCounter gene expression data.</a> Nucleic Acids Res <em>47</em>, 6073–6083.</div>
+</div>
+</div>
+<p><br/></p>
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGlhZ25vc2lzIG9mIGNvbW1vbiBza2luIGNhbmNlcnMiCiNzdWJ0aXRsZTogIk9uIHRoZSBEZXNpZ24gb2YgVmFsaWRhdGlvbiBTdHVkaWVzIgphdXRob3I6IEZyYW5jb2lzIENvbGxpbgojZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJUIgJWQsICVZJylgIgpiaWJsaW9ncmFwaHk6IFtSZWZzL19EZXJtLmJpYl0KY3NsOiAuLi9fY3NsL2NlbGwtbnVtZXJpYy5jc2wKbGluay1jaXRhdGlvbnM6IHRydWUKYWx3YXlzX2FsbG93X2h0bWw6IHllcwpvdXRwdXQ6CiAgI2h0bWxfZG9jdW1lbnQ6CiAgIyBmb3IgdXNlIG9mIC50YWJzZXQKICAjcm1hcmtkb3duOjpodG1sX2RvY3VtZW50OgogIGJvb2tkb3duOjpodG1sX2RvY3VtZW50MjoKICAgIGNvZGVfZm9sZGluZzogaGlkZQogICAgY29kZV9kb3dubG9hZDogdHJ1ZQogICAgdG9jOiB0cnVlCiAgICB0b2NfZGVwdGg6IDIKICAgICMgZG9lcyB0aGlzIGhhdmUgYW4gZWZmZWN0CiAgICBmaWdfY2FwdGlvbjogeWVzCiAgICAjIHRoaXMgaGFzIG5vIGVmZmVjdAogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMKICAgICMgY3NzOiBbJy4uL19jc3MvcGFuZG9jMy5jc3MnLCAnLi4vX2Nzcy9teU1hcmdpbnMuY3NzJ10KLS0tCgo8IS0tIAoKPHAgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6IHllbGxvdzsgcGFkZGluZzogNXB4OyI+CiAgPHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyI+4pqg77iPIFdvcmsgaW4gUHJvZ3Jlc3M6PC9zcGFuPiBUaGlzIGNvbnRlbnQgaXMgaW5jb21wbGV0ZS4KPC9wPgoKLS0+CgpgYGB7ciBzZXR1cCwgaW5jbHVkZSA9IEZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUsCiAgICAgICAgICAgICAgICAgICAgICBjb21tZW50ID0gTkEsCiAgICAgICAgICAgICAgICAgICAgICB3YXJuaW5nID0gRkFMU0UsCiAgICAgICAgICAgICAgICAgICAgICBlcnJvciA9IEZBTFNFLAogICAgICAgICAgICAgICAgICAgICAgbWVzc2FnZSA9IEZBTFNFLAogICAgICAgICAgICAgICAgICAgICAgY2FjaGUgPSBGQUxTRSwKICAgICAgICAgICAgICAgICAgICAgIGZpZy53aWR0aCA9IDgsCiAgICAgICAgICAgICAgICAgICAgICBmaWcuaGVpZ2h0ID0gNCkKYGBgCgoKYGBge3IgaW5kZXgtR2xvYmFsT3B0aW9ucywgcmVzdWx0cz0iaGlkZSIsIGluY2x1ZGU9RkFMU0UsIGNhY2hlPUZBTFNFfQoKa25pdHI6Om9wdHNfa25pdCRzZXQoc3RvcF9vbl9lcnJvciA9IDJMKSAjcmVhbGx5IG1ha2UgaXQgc3RvcApvcHRpb25zKGtuaXRyLnRhYmxlLmZvcm1hdCA9ICdodG1sJykKCm9wdGlvbnMoc3RyaW5nc0FzRmFjdG9ycz1GKQoKICNrbml0cjo6ZGVwX2F1dG8oKQoKYGBgCjwhLS0gIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIC0tPgoKCmBgYHtyIGluZGV4LVByZWxpbXMsICBpbmNsdWRlPUZBTFNFLCBlY2hvPUZBTFNFLCByZXN1bHRzPSdoaWRlJywgbWVzc2FnZT1GQUxTRX0gCgoKRk4gPC0gImluZGV4IgppZihzdW0oZ3JlcGwoRk4sIGxpc3QuZmlsZXMoKSkpPT0wKSBzdG9wKCJDaGVjayBGTiIpCgpQUkVGSVggPC0gImluZGV4IiAjLSByZXBsYWNlIGJ5IEZMT1dDRUxMPz8/Cgogc3VwcHJlc3NNZXNzYWdlcyhyZXF1aXJlKHJtYXJrZG93bikpCiBzdXBwcmVzc01lc3NhZ2VzKHJlcXVpcmUoa25pdHIpKQoKIHN1cHByZXNzUGFja2FnZVN0YXJ0dXBNZXNzYWdlcyhyZXF1aXJlKG1ldGhvZHMpKQogc3VwcHJlc3NQYWNrYWdlU3RhcnR1cE1lc3NhZ2VzKHJlcXVpcmUoYm9va2Rvd24pKQoKIHN1cHByZXNzUGFja2FnZVN0YXJ0dXBNZXNzYWdlcyhyZXF1aXJlKG1hZ3JpdHRyKSkKCiAjIFNob3RjdXRzIGZvciBrbml0dGluZyBhbmQgcmVuZGVyaW5nIHdoaWxlIGluIFIgc2Vzc2lvbiAoSW52b2tlIGludGVyYWN0aXZlIFIgZnJvbSBSL1NjcmlwdHMgZm9sZGVyKQoga2sgPC0gZnVuY3Rpb24obj0nJykga25pdHI6OmtuaXQyaHRtbChwYXN0ZSgidCIsIG4sIHNlcD0nJyksIGVudmlyPWdsb2JhbGVudigpLAogICAgICAgb3V0cHV0PXBhc3RlKEZOLCIuaHRtbCIsIHNlcD0nJykpCgogcnIgPC0gZnVuY3Rpb24obj0nJykgcm1hcmtkb3duOjpyZW5kZXIocGFzdGUoInQiLCBuLCBzZXA9JycpLCBlbnZpcj1nbG9iYWxlbnYoKSwKICAgICAgIG91dHB1dF9maWxlPXBhc3RlKEZOLCIuaHRtbCIsIHNlcD0nJykpICMjLCBvdXRwdXRfZGlyPSdTY3JpcHRzJykKCiBiYiA8LSBmdW5jdGlvbihuPScnKSBicm93c2VVUkwocGFzdGUoRk4sIi5odG1sIiwgc2VwPScnKSkKCiAjIFRoZSB1c3VhbCBzaG9ydGN1dHMKIHp6IDwtIGZ1bmN0aW9uKG49JycpIHNvdXJjZShwYXN0ZSgidCIsIG4sIHNlcD0nJykpCgpgYGAKPCEtLSAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMgLS0+Cgo8YnIvPgoKIyBCYWNrZ3JvdW5kIAoKPHA+PHAvPgoqIFRoZSBwcmVzZW50IGNvbnRhaW5zIGZvbGxvdy11cCByZW1hcmtzIGZvciAyMDI1LTAzLTEwIG1lZXRpbmcKICAgLSBNYXJpYSBXZWksIFZpbmNlIFd1LCBGcmFuY29pcyBDb2xsaW4gKE1lKQoKPHA+PHAvPgoqIFRoZSByZW1hcmtzIGFyZSBwcm9jZWR1cmFsIGFuZCBtYXkgbm90IGFwcGx5LCBidXQgdGhleSBhcmUgYmFzZWQgb24gbXkKZXhwZXJpZW5jZSAobW9zdGx5IGltcGxlbWVudGluZyB0aGUgaWRlYXMgb2Ygb3RoZXJzKSBhbmQgaGF2ZSBhbHdheXMKcmVzdWx0ZWQgaW4gYSBzbW9vdGggcGF0aCBmcm9tIGNvbmNlcHQgdG8gY29tcGxldGlvbi4KICAgLSAqRGV2ZWxvcG1lbnQgYW5kIFZhbGlkYXRpb24gb2YgYSBNdWx0aWNsYXNzIE1vZGVsIERlZmluaW5nIE1vbGVjdWxhciBBcmNoZXR5cGVzIG9mIApLaWRuZXkgVHJhbnNwbGFudCBSZWplY3Rpb24qIFtAWmhhbmc6MjAyNGFhXSBpcyBhbiBleGFtcGxlIG9mIGEgdGVzdCB3aGljaCB3YXMgCmRldmVsb3BlZCBhbmQgdmFsaWRhdGVkIHdpdGhpbiAxOCBtb250aHMuICBJIHdhcyByZXNwb25zaWJsZSBmb3IgYWxsIGRlc2lnbiBhbmQKYW5hbHlzaXMuCgoKCjxwPjxwLz4KKiBUaGUgcHVycG9zZSBvZiB0aGUgMjAyNS0wMy0xMCBtZWV0aW5nIHdhcyB0byBkaXNjdXNzIHNvbWUgdmFsaWRhdGlvbiBkYXRhCmFuZCBuZXh0IHN0ZXBzLCBidXQgSSBhbiBub3QgcHJlcGFyZWQgdG8gYWR2aXNlIG9uIHRoZSB2YWxpZGF0aW9uIG9mIGEgdGVzdApJIGRvbid0IGZ1bGx5IHVuZGVyc3RhbmQuICBJdCBtYXkgYWxzbyBiZSB0b28gZWFybHkgdG8gc3RhcnQgYSAKZm9ybWFsIHZhbGlkYXRpb24gcHJvY2VzcyB3aGljaCBjYW4gb25seSBiZWdpbiBhZnRlciBhc3NheSBsb2NrLgogICAtIFRoZXJlIGFyZSBkaWZmZXJlbnQgbm90aW9ucyBvZiAqdmFsaWRhdGlvbiouICBUaGUgZm9ybWFsIHZhbGlkYXRpb24gSSBhbQp0aGlua2luZyBhYm91dCBoZXJlIGlzIGEgdmFsaWRhdGlvbiByZXBvcnQgd2hpY2ggd2lsbCBiZSBmaWxlZCB3aXRoIGEgcmVndWxhdG9yeQphZ2VuY3kuICAKICAgLSAiVmFsaWRhdGlvbiIgb3V0c2lkZSBvZiB0aGUgcmVndWxhdG9yeSBzcGhlcmUgb2YgaW5mbHVlbmNlIGNhbiBtZWFuIGFueXRoaW5nIApmcm9tIHRoZSB0YWJ1bGF0aW9uIG9mIHJlc3VsdHMgd2l0aG91dCBhIGZvcm1hbCBhbmFseXNpcyBwbGFuIHRvIGFuYWx5c2lzIG1hZGUgYWNjb3JkaW5nCnRvIGEgIHByZS1zcGVjaWZpZWQgcGxhbiB0aGF0IGhhcyBiZWVuIElSQiBhcHByb3ZlZCBhbmQgbG9ja2VkLgoKPCEtLQo8cD48cC8+CiogTm93IGlzIGEgZ29vZCB0aW1lIHRvIHBsYW4gZm9yIHZhbGlkYXRpb24gYnkgbWFraW5nIHN1cmUgYW4gYXBwcm9wcmlhdGUKbnVtYmVyIG9mIHNhbXBsZXMgb2YgdGhlIHJpZ2h0IHNvcnQgd2lsbCBiZSBhdmFpbGFibGUgZm9yIHRoZSB2YWxpZGF0aW9uIHN0dWR5LgpJZiB0aGUgc2FtcGxlcyB0byBiZSB1c2VkIGZvciB2YWxpZGF0aW9uIGFyZSBhbHJlYWR5IG9uLWhhbmQsIHRoZXkgc2hvdWxkIGJlCnNlcXVlc3RlcmVkIGFzIHRoZXkgY2Fubm90IGJlIGV4YW1pbmVkIGluIGFueSB3YXkgYmVmb3JlIGJlaW5nIHVzZWQgaW4gdGhlCnZhbGlkYXRpb24gc3R1ZHkuCi0tPgoKPHA+PHAvPgoqIEJlZm9yZSB2YWxpZGF0aW9uIGJlZ2lucywgdGhlIERpc2NvdmVyeSBQaGFzZSBtdXN0IGJlIGNvbXBsZXRlZAphbmQgdGhlIGFzc2F5IGxvY2tlZC4gIFRoZSBwcm9kdWN0IG9mIHRoZSBEaXNjb3ZlcnkgUGhhc2UgaXMgYSBmdWxseQpzcGVjaWZpZWQgdGVzdDoKICAgLSBob3cgdGhlIHRlc3QgaXMgY2FycmllZCBvdXQsIAogICAtIHdoYXQgYXJlIHRoZSBzYW1wbGUgYW5hbHl6YWJpbGl0eSBjb25kaXRpb25zLiAgCiAgICAgIC0gYW5hbHl6YWJpbGl0eSBjb25kaXRpb25zLCBvciBpbmNsdXNpb24gY3JpdGVyaWEsIGNvbWUgZnJvbSB0aGUgRGF0YSBRQyBzdGVwLgoKPGJyLz4KCiMgRGF0YSBRQyAtIFNhbXBsZSBhbmQgUnVuIFZhbGlkaXR5IENyaXRlcmlhCgoqICoqQmVmb3JlIGFueXRoaW5nIGVsc2UgaGFwcGVucyoqLCB0aGUgbmF0dXJlIG9mIHRoZSBkYXRhIHVzZWQgYnkKdGhlIHRlc3QgYmVpbmcgZGV2ZWxvcGVkIG5lZWRzIHRvIGJlIGZ1bGx5IHVuZGVyc3Rvb2QuICBBIGRhdGEgUUMgcHJvY2VkdXJlIApjdXN0b21pemVkIHRvIHRoZSBzcGVjaWZpYyByZXF1aXJlbWVudHMgb2YgdGhlCnRlc3QgaW4gZGV2ZWxvcG1lbnQgc2hvdWxkIGJlIGZpbmFsaXplZCBhbmQgbG9ja2VkIGJlZm9yZSBiZWluZyBhcHBsaWVkIAp0byBydW5zIHRoYXQgYXJlIHBhcnQgb2YgdGhlIHRlc3QgZGV2ZWxvcG1lbnQuCgoqIFRoZSBzYW1wbGVzIHdoaWNoIGFyZSB1c2VkIHRvIGZpdCBhbmQgdmFsaWRhdGUgYSBtb2RlbCBhcmUgaW4gbWFueSBjYXNlcyBtb3JlCmltcGFjdGZ1bCBvbiB0aGUgdWx0aW1hdGUgcGVyZm9ybWFuY2Ugb2YgYW4gb21pYy1iYXNlZCB0ZXN0IHRoYW4gdGhlCnNlbGVjdGVkIG1vZGVsIGl0c2VsZi4gICBJdCBpcyB0aGVyZWZvcmUgY3JpdGljYWxseSBpbXBvcnRhbnQgdG8gYXBwbHkgYWNjdXJhdGUsCnN0YXRpc3RpY2FsbHkgc291bmQgSW5jbHVzaW9uL0V4Y2x1c2lvbiBjcml0ZXJpYSB3aGVuIHNlbGVjdGluZyBzYW1wbGVzCmZvciBkZXZlbG9wbWVudCBhbmQgdmFsaWRhdGlvbiAgKEZEQSAoMjAxOSkgW0BGREE6MjAxOWFhXSkuCgoqIFRoZSBzdWNjZXNzIG9mIHRoaXMgc2VsZWN0aW9uIG9yIGlkZW50aWZpY2F0aW9uIHByb2Nlc3MgZGVwZW5kcyBvbgpoYXZpbmcgZXN0YWJsaXNoZWQgYSBjb21wcmVoZW5zaXZlIFFDIHByb2NlZHVyZSwgY3VzdG9taXplZCAgdG8gdGhlIApzcGVjaWZpYyBuZWVkcyBvZiB0aGUgdGVzdCB1bmRlciBjb25zaWRlcmF0aW9uLgpUaGUgbWV0cmljcyBpbiBNZWxhbmlhIGV0IGFsLiAoMjAxOSkgW0BNb2xhbmlhOjIwMTlhYV0gdG8gYXNzZXNzCm5vcm1hbGl6YXRpb24gY2FuIGFsc28gYmUgdXNlZCBmb3IgUUMuCgoqIFRocm91Z2ggYW5hbHlzaXMgd2UgY2FuIGRldGVybWluZSBlbXBpcmljYWxseSB3aGljaCBhcmUgdGhlIGJlc3QgbWV0cmljcyB0byB1c2UgdG8gaWRlbnRpZnkgCndoaWNoICoqc3BlY2ltZW5zKiogYW5kICoqYW5hbHl0aWNhbCBydW5zKiogYXJlIHRvIGJlIGV4Y2x1ZGVkLgpJbmNsdXNpb25zIGFuZCBleGNsdXNpb25zIG11c3QgYmUgKipwcmUtc3BlY2lmaWVkKiogYXMgcGFydCBvZiB0aGUgbG9ja2VkIHByb2NlZHVyZS4KCjwhLS0KKiBSdWxlcyBmb3IgaW5jbHVzaW9uL2V4Y2x1c2lvbiBtdXN0IGJlIGRlcml2ZWQgZW1waXJpY2FsbHkgZnJvbSBkYXRhCmNvbGxlY3RlZCBpbiB0aGUgYXBwcm9wcmlhdGUgKipvcGVyYXRpb25hbCBjb250ZXh0KiogYW5kIHNob3VsZCBiZSBzdGF0aXN0aWNhbGx5Cmp1c3RpZmlhYmxlLgotLT4KCiogVGhpcyBwcm9jZXNzIG11c3QgYmUgZnVsbHkgZG9jdW1lbnRlZC4KCjxici8+CgojIyBPbiBjb250cm9scwoKPHA+PHAvPgoqIFRoZXJlIGFyZSB2YXJpb3VzIHNvcnRzOgogICAtIHNhbXBsZXM6IHBvc2l0aXZlIGFuZCBuZWdhdGl2ZSBkaWZmZXJlbnRpYWwgZXhwcmVzc2lvbiBjb250cm9scwogICAtIGZlYXR1cmVzIChtaVJOQVMpOiBzdGFibHkgZXhwcmVzc2VkCiAgIC0gc3ludGhldGljIG1pUk5BIHNwaWtlLWlucyBmcm9tIGNvbW1lcmNpYWwgCgo8cD48cC8+CiogQ29udHJvbCBzdHJhdGVnaWVzIGNhbiBiZSBpbXBsZW1lbnJlZCBzdWNoIHRoYXQgdmFyaW91cyAqKnRydXRocyoqIGFyZSBidWlsdAppbiBldmVyeSBydW4gYW5kIGNhbiBiZSBzdW1tdW5lZCBmb3IgUUMgYW5kIG5vcm1hbGl6YXRpb24uCgoKPGJyLz4KCiMgTW9kZWwgU2VsZWN0aW9uIAoKKiBUaGUgbW9kZWwgc2VsZWN0aW9uIHByb2Nlc3Mgc2hvdWxkIGJlIGZ1bGx5IGRvY3VtZW50ZWQgdG8gZW5zdXJlIHJlcHJvZHVjaWJpbGl0eS4KCjxwPjxwLz4KKiBUaGUgY3JpdGVyaWEgdXNlZCB0byBzY29yZSBtb2RlbHMgbXVzdCBiZSBjbGVhcmx5IHN0YXRlZCBhcyBwYXJ0IG9mIHRoZSBkb2N1bWVudGF0aW9uLgogICAtIHRoZSBtb2RlbCB3aXRoIHRoZSBoaWdoZXN0IGNyb3NzLXZhbGlkYXRlZCBhY2N1cmFjeSBlc3RpbWF0ZSBpcyAKKipub3QgbmVjZXNzYXJpbHkgdGhlIGJlc3QqKiBtb2RlbCB0byBjaG9vc2UKICAgICAgLSBtYW55IG1vZGVscyBtYXkgYWNoaWV2ZSB0aGUgc2FtZSBhY2N1cmFjeSBhZnRlciBhY2NvdW50aW5nIGZvciBlc3RpbWF0aW9uIGVycm9yCiAgICAgIC0gb3RoZXIgZmFjdG9ycyBtYXkgYmUgZXF1YWxseSBpbXBvcnRhbnQ6CiAgICAgICAgIC0gaW50ZXJwcmV0YWJpbGl0eQogICAgICAgICAtIHJlcHJvZHVjaWJpbGl0eQogICAgICAgICAtIHJvYnVzdG5lc3MgdG8gZml0dGluZyBzZXQgc2VsZWN0aW9uCiAgICAgICAgIC0gaW4gYSBtdWx0aW5vbWlhbCBjb250ZXh0LCBub3QgYWxsIGVycm9yIGFyZSBlcXVhbAogICAKPHA+PHAvPgoqIEluIGEgbXVsdGktc2l0ZSBjb250ZXh0IGl0IGlzIGltcG9ydGFudCB0byBoYXZlIGEgcmVwcmVzZW50YXRpdmUgc2V0IG9mIHNpdGVzIGluCnRoZSBmaXR0aW5nIHNldC4KCjxici8+CgoKIyBBc3NheSBMb2NrIAoKQSBrZXkgY29tcG9uZW50IG9mIGEgZGlhZ25vc3RpYyB0ZXN0IGRldmVsb3BtZW50CnByb2Nlc3MgaXMgQXNzYXkgTG9jay4KCiogVmFsaWRhdGlvbiBvbmx5IHN0YXJ0cyAqKmFmdGVyIGFzc2F5IGxvY2sqKi4KCiogKipMb2NrKiogbWVhbnMgdGhhdCB0aGUgY29tcGxldGUgZW5kLXRvLWVuZCBwcm9jZWR1cmUgaXMgZnJvemVuLiAKSXQgbXVzdCBvY2N1ciAqYmVmb3JlKiBhbnkgdmFsaWRhdGlvbiBiZWdpbnMKCiogVGhlIHNjb3BlIGluY2x1ZGVzOiBzcGVjaW1lbiBoYW5kbGluZywgaW5zdHJ1bWVudCBhY3F1aXNpdGlvbiwgCmFuZCBhbGwgZGF0YSBwcm9jZXNzaW5nIGZyb20gdGhlIGluc3RydW1lbnRzIG91dHB1dCB0byB0aGUgZmluYWwgcmVzdWx0Cgo8cD48cC8+CiogRXZlcnkgc3RlcCBtdXN0IGJlICoqZnVsbHkgZG9jdW1lbnRlZCoqIGF0IGxvY2sKICAgLSB0aGlzIGluY2x1ZGVzIGhvdyB0aGUgbW9kZWwgd2FzIHNlbGVjdGVkLCBhbGwgUUMKbWV0cmljcyBhbmQgcHJvY2VkdXJlcywgYW5kIGFjY2VwdGFuY2UvaW5jbHVzaW9uIGNyaXRlcmlhLgoKPHA+PHAvPgoqIEFueSBwb3N0LWxvY2sgY2hhbmdlICBjb25zdGl0dXRlcyBhIHByb3RvY29sIGRldmlhdGlvbiwgYW5kIG1heSAKaW52YWxpZGF0ZSBzdWJzZXF1ZW50IHZhbGlkYXRpb24gZGF0YQoKPGJyLz4KCjxici8+CgoKIyBOQ0kgSU9NIEd1aWRlbGluZXMgIHstfQoKCiogRm9sbG93aW5nIHNldmVyYWwgY2FzZXMgb2YgKipmbGF3ZWQgcHJvZHVjdHMgbWFraW5nIGl0IGludG8gdGhlIGNsaW5pYyoqLAp0aGUgTmF0aW9uYWwgQ2FuY2VyIEluc3RpdHV0ZSAoTkNJKSByZXF1ZXN0ZWQgdGhhdCB0aGUgSW5zdGl0dXRlIG9mIE1lZGljaW5lIChJT00pIApmb3JtIGEgY29tbWl0dGVlIHRvICpkZXZlbG9wIHJlY29tbWVuZGF0aW9ucyB0byBjbGFyaWZ5IGFuZCBpbXByb3ZlIHRoZSBwYXRod2F5IApmcm9tIGRpc2NvdmVyeSB0byBmaXJzdCB1c2Ugb2Ygb21pY3MtYmFzZWQgdGVzdHMgaW4gYSBjbGluaWNhbCB0cmlhbHMqLgoKPiBUaGlzIHJlcG9ydCBpZGVudGlmaWVzIGJlc3QgcHJhY3RpY2VzIHRvIGVuaGFuY2UgZGV2ZWxvcG1lbnQsIGV2YWx1YXRpb24sIAo+IGFuZCB0cmFuc2xhdGlvbiBvZiBvbWljcy1iYXNlZCB0ZXN0cyB3aGlsZSBzaW11bHRhbmVvdXNseSByZWluZm9yY2luZyAKPiBzdGVwcyB0byBlbnN1cmUgdGhhdCB0aGVzZSB0ZXN0cyBhcmUgYXBwcm9wcmlhdGVseSBhc3Nlc3NlZCBmb3Igc2NpZW50aWZpYyAKPiB2YWxpZGl0eSBiZWZvcmUgdGhleSBhcmUgdXNlZCB0byBndWlkZSBwYXRpZW50IHRyZWF0bWVudCBpbiBjbGluaWNhbCB0cmlhbHMuCgo8cD48cC8+IAoqIExpbmtzIHRvIGhhbmR5IHJlc291cmNlczoKICAgLSBbV2hpdGUgcGFwZXIgLSBFdm9sdXRpb24gb2YgVHJhbnNsYXRpb25hbCBPbWljczogTGVzc29ucyBMZWFybmVkIGFuZCB0aGUgUGF0aCBGb3J3YXJkXShodHRwczovL3B1Ym1lZC5uY2JpLm5sbS5uaWguZ292LzI0ODcyOTY2LykKICAgICAgLSBHdWlkZWxpbmVzIGZvciB0aGUgRGV2ZWxvcG1lbnQgb2YgT21pYyBCYXNlZCBQcm9kdWN0cwoKPHA+PHAvPiAKLSBbU3VtbWFyeSBzbGlkZXNdKE9taWNzVGVzdHNfZmlsZXMvX09taWNzVGVzdHMuaHRtbCkKCjxici8+CgojIERpc2NvdmVyeSBQaGFzZSBXb3JrZmxvd3MKCkZvciB0aGUgZGlzY292ZXJ5IHBoYXNlLCB0aGVyZSBhcmUgdGhyZWUgY29tbW9uIGRldmVsb3BtZW50IHdvcmtmbG93cy4KCjxici8+CgojIyBSZWNvbW1lbmRlZCBXb3JrZmxvdyAKClRoZSByZWNvbW1lbmRlZCB3b3JrZmxvdyBpcyBkZXBpY3RlZCBpbiBGaWd1cmUgXEByZWYoZmlnOm1lZXQtMjAyNTAzMTAtZGlzYy1yZWMpLgoKCmBgYHtyIG1lZXQtMjAyNTAzMTAtZGlzYy1yZWMtY2FwLCBldmFsPVR9CkNBUFRJT04gPC0gIHBhc3RlKApjKCJPbWljcy1iYXNlZCB0ZXN0IGRldmVsb3BtZW50IHByb2Nlc3M6IHJlY29tbWVuZGVkIGRpc2NvdmVyeSBwaGFzZSIpKQoKYGBgCgpgYGB7ciBtZWV0LTIwMjUwMzEwLWRpc2MtcmVjLCBmaWcuY2FwPUNBUFRJT04sIGVjaG89Rn0KCiAgIGtuaXRyOjppbmNsdWRlX2dyYXBoaWNzKCJPbWljc1Rlc3RzX2ZpbGVzL09taWNzLWJhc2VkX1Rlc3RfRGV2ZWxvcG1lbnRfUHJvY2Vzcy5wbmciLCBkcGk9NzUpCgpgYGAKCjxici8+CgoKIyMjIE5vdGUgb24gdGhlIENvbmZpcm1hdGlvbiBTdGVwIHstfQoKKiBJbiB0aGUgZmxvd2NoYXJ0IGluIEZpZ3VyZSBcQHJlZihmaWc6bWVldC0yMDI1MDMxMC1kaXNjLXJlYyksCnRoZSByZWNvbW1lbmRlZCBhbmFseXNpcyBzdGVwcyBpbmNsdWRlcyBhIGNvbmZpcm1hdGlvbiBzdGVwIAp3aGljaCBpcyBydW4gcHJpb3IgdG8gYW55IGZvcm1hbCB2YWxpZGF0aW9uIHJ1bi4gIAoKKiBUaGUgY29uZmlybWF0aW9uIHN0ZXAgY2FuIHByb3ZpZGUgYWRkZWQgY29uZmlkZW5jZSBpbiB0aGUgZXhwZWN0ZWQKcmVzdWx0cyBmcm9tIHRoZSB2YWxpZGF0aW9uIHJ1bnMsIG9yIG1heSBpbmRpY2F0ZSB0aGF0IHNvbWUgdHdlYWsgdG8gdGhlCnRlc3QgcHJvY2VkdXJlIGlzIG5lZWRlZC4KCjxwPjxwLz4KKiBUaGUgdXNlIG9mIGEgY29uZmlybWF0aW9uIHN0ZXAgaXMgaGlnaGx5IHJlY29tbWVuZGVkIHVubGVzcyB0aGUgdGVzdCBkYXRhCmhhcyBiZWVuIGV4dGVuc2l2ZWx5IHN0dWRpZWQgaW4gdGhlIHBhc3QgYW5kIHRoZXJlIHdvdWxkIGJlIGxpdHRsZSB0byAKbGVhcm4gZnJvbSB0aGUgcmVzdWx0cy4KICAgLSBpbiBteSBleHBlcmllbmNlIHRoZSBuZWVkIGZvciBhIHNlcGFyYXRlIGNvbmZpcm1hdGlvbiBzdGVwIGNhbgpiZSBhc3Nlc3NlZCBvbiBhIGNhc2UgYnkgY2FzZSBiYXNpcy4KICAgLSBpZiB0aGUgdHJhaW5pbmcgZGF0YSBhcmUgY29tcGxleCBhbmQgcmVwcmVzZW50YXRpdmUgb2YgdGhlIHRhcmdldApwb3B1bGF0aW9uLCBhbmQgdGhlIG1vZGVsIHdlbGwgdW5kZXJzdG9vZCwgYW5kIHRoZSBvdXQtb2YtZm9sZCBlcnJvciByYXRlCnNpbWlsYXIgdG8gdGhlIHRlc3Qgc3Vic2V0IGVycm9yIHJhdGUsIHRoZW4gdGhlIHJpc2sgb2YgZW5jb3VudGVyaW5nCnVuZXhwZWN0ZWQgYW5kIGRpdmVyZ2VudCByZXN1bHRzIGF0IHZhbGlkYXRpb24gaXMgbGltaXQKCjxici8+IAoKIyMgTm8tQ29uZmlybWF0aW9uIFdvcmtmbG93CgoqIFRoZSBOby1Db25maXJtYXRpb24gd29ya2Zsb3cgaXMgZGVwaWN0ZWQgaW4gRmlndXJlIFxAcmVmKGZpZzptZWV0LTIwMjUwMzEwLWRpc2Mtbm8tY29uZmlybSkuCgoKKiBUaGUgTm8tQ29uZmlybWF0aW9uIHdvcmtmbG93IGNhbiBiZSByaXNreSwgdW5sZXNzIHRoZSB0ZXN0IGRhdGEgYXJlCmZhbWlsaWFyLgoKaXR3CmBgYHtyIG1lZXQtMjAyNTAzMTAtZGlzYy1uby1jb25maXJtLWNhcCAsIGV2YWw9VH0KQ0FQVElPTiA8LSAgcGFzdGUoCmMoIk9taWNzLWJhc2VkIHRlc3QgZGV2ZWxvcG1lbnQgcHJvY2Vzczogbm8tY29uZmlybWF0aW9uIGRpc2NvdmVyeSBwaGFzZSB3b3JrZmxvdyIpKQoKYGBgCgpgYGB7ciBtZWV0LTIwMjUwMzEwLWRpc2Mtbm8tY29uZmlybSwgZmlnLmNhcD1DQVBUSU9OLCBlY2hvPUZ9CgogICBrbml0cjo6aW5jbHVkZV9ncmFwaGljcygiT21pY3NUZXN0c19maWxlcy9PbWljcy1iYXNlZF9UZXN0X0RldmVsb3BtZW50X1Byb2Nlc3Nfbm9fY29uZmlybS5wbmciLCBkcGk9NzUpCgpgYGAKCjxici8+CgoKIyMgSXRlcmF0aXZlIE1vZGVsIEJ1aWxkIFVwIFdvcmtmbG93CgpUaGUgSXRlcmF0aXZlIE1vZGVsIEJ1aWxkIFVwIHdvcmtmbG93IGlzIGRlcGljdGVkIGluIEZpZ3VyZSBcQHJlZihmaWc6bWVldC0yMDI1MDMxMC1kaXNjLWl0ZXJhdGl2ZSkuCgpgYGB7ciBtZWV0LTIwMjUwMzEwLWRpc2MtaXRlcmF0aXZlLCBmaWcuY2FwPUNBUFRJT04sIGVjaG89Rn0KICAga25pdHI6OmluY2x1ZGVfZ3JhcGhpY3MoIk9taWNzVGVzdHNfZmlsZXMvT21pY3MtYmFzZWRfVGVzdF9EZXZlbG9wbWVudF9Qcm9jZXNzX2l0ZXJhdGl2ZS5wbmciLCBkcGk9NzUpCgpgYGAKCgo8YnIvPgoKIyMgVmFsaWRhdGlvbiBGaWd1cmVzIHstfQoKKiBbQ29tbWVudHNdKFdlaV9maWdzL1dlaV9maWdzLmh0bWwpCgoKPGJyLz4KCgojIFJlZmVyZW5jZXMgCgo8ZGl2IGlkPSJyZWZzIj48L2Rpdj4KCgo8YnIvPgoKCmBgYHtyLCBlY2hvPUZBTFNFfQogIGtuaXRyOjprbml0X2V4aXQoKQpgYGAKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiBBUkNISVZFRCBDT0RFIEJFTE9XCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCgojIyBLbm93bGVkZ2UgQmFzZSB7LSAudGFic2V0fQoKIyMjIEhvbWUgey19Cgo8YnIvPgoKIyMjIEFJIGluIFR4IE9taWNzICB7LX0KCiogTGl0ZXJhdHVyZSBzZWFyY2g6IFdoZW4gZG8gY2xhc3NpZmllcnMgYmFzZWQgb24gbm92ZWwgbWV0aG9kcwpkbyBiZXR0ZXIgdGhhbiB0cmFkaXRpb25hbCBtZXRob2RzLiAKCjxici8+CgojIyMgQmlvbWFya2VycyBvZiBTa2luIENhbmNlciB7LX0KCgo8YnIvPgoKIyMjIENsYXNzaWZpZXJzIGJhc2VkIG9uIG1pY1JOQSB7LX0KCjxici8+CgoKICAgIAo8IS0tIFRvIHJ1bgojIG5vaHVwIFJzY3JpcHQgLWUgImtuaXRyOjprbml0Mmh0bWwoJ2luZGV4LlJtZCcpIiA+IGluZGV4LmxvZyAgJgogICAgCiMgT3IgCiMgbm9odXAgUnNjcmlwdCAtZSAicm1hcmtkb3duOjpyZW5kZXIoJ2luZGV4LlJtZCcpIiA+IGluZGV4LmxvZyAgJgogICAgCi0tPgoK</div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("index.Rmd");
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

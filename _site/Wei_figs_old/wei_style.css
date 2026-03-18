@@ -1,0 +1,89 @@
+/* Base */
+.reveal { font-size: 20px; }
+
+/* Slide title: gold */
+.reveal h1 {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #f0c040;
+  text-transform: none;
+  margin: 0 0 0.3em 0;
+  line-height: 1.2;
+  border-bottom: 1px solid rgba(240,192,64,0.25);
+  padding-bottom: 0.15em;
+}
+
+/* Section subhead: teal */
+.reveal h2 {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #4ec9b0;
+  text-transform: none;
+  margin: 0.4em 0 0.15em 0;
+  line-height: 1.2;
+}
+
+/* Body */
+.reveal p {
+  font-size: 0.72em;
+  color: #d4d4d4;
+  line-height: 1.45;
+  margin: 0.2em 0;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+  font-size: 0.72em;
+  color: #d4d4d4;
+  line-height: 1.45;
+  margin: 0.15em 0 0.15em 1.1em;
+}
+.reveal li { margin-bottom: 0.15em; }
+
+/* Tables */
+.reveal table {
+  font-size: 0.62em;
+  color: #d4d4d4;
+  border-collapse: collapse;
+  width: 100%;
+}
+.reveal table th {
+  color: #f0c040;
+  border-bottom: 1px solid #f0c040;
+  padding: 0.25em 0.5em;
+  font-weight: 600;
+}
+.reveal table td {
+  padding: 0.2em 0.5em;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Figure captions: periwinkle, small */
+.reveal .caption {
+  font-size: 0.60em;
+  color: #89b4f8;
+  line-height: 1.4;
+  margin: 0.3em 0 0.2em 0;
+  padding: 0.2em 0.5em;
+  border-left: 2px solid #89b4f8;
+  background: rgba(137,180,248,0.05);
+}
+
+/* Annotation block: gold, editable feel */
+.reveal .annotation {
+  font-size: 0.68em;
+  color: #f0c040;
+  background: rgba(240,192,64,0.07);
+  border-left: 3px solid #f0c040;
+  padding: 0.3em 0.7em;
+  margin-top: 0.3em;
+  border-radius: 2px;
+  line-height: 1.5;
+  min-height: 1.8em;
+}
+
+/* Bold: teal */
+.reveal strong { color: #4ec9b0; font-weight: 600; }
+
+/* Slide number */
+.reveal .slide-number { font-size: 0.5em; color: #555; }

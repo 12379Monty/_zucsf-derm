@@ -1,7 +1,8 @@
 ---
 title: "Diagnosis of common skin cancers"
-subtitle: "On the Design of Validation Studies"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+#subtitle: "On the Design of Validation Studies"
+author: Francois Collin
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
 bibliography: [Refs/_Derm.bib]
 csl: ../_csl/cell-numeric.csl
 link-citations: true
@@ -342,7 +343,7 @@ The Iterative Model Build Up workflow is depicted in Figure \@ref(fig:meet-20250
 
 <br/>
 
-## Validation Day Figures {-}
+## Validation Figures {-}
 
 * [Comments](Wei_figs/Wei_figs.html)
 

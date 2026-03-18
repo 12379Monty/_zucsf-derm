@@ -1,0 +1,81 @@
+PMID- 41689579
+OWN - NLM
+STAT- Publisher
+LR  - 20260306
+IS  - 1523-1747 (Electronic)
+IS  - 0022-202X (Linking)
+DP  - 2026 Feb 14
+TI  - Artificial intelligence-enabled precision medicine for inflammatory skin 
+      diseases.
+LID - S0022-202X(25)03518-3 [pii]
+LID - 10.1016/j.jid.2025.10.596 [doi]
+AB  - Recent advances in artificial intelligence (AI) and multimodal data collection 
+      are revolutionizing dermatology. Generative AI and machine-learning approaches 
+      offer opportunities to enhance the diagnosis and treatment of autoimmune and 
+      inflammatory skin diseases, including atopic dermatitis, psoriasis, hidradenitis 
+      suppurativa, vitiligo, alopecia areata, and rheumatic skin disease. This review 
+      examines the current landscape of AI applications for inflammatory skin diseases 
+      and explores how generative AI and machine-learning methods can advance the field 
+      through deep phenotyping, characterization of disease heterogeneity, drug 
+      discovery, precision medicine, and delivery of clinical care. We discuss the 
+      promises and challenges of these technologies and present a vision for their 
+      integration into clinical practice.
+CI  - Copyright © 2025 The Authors. Published by Elsevier Inc. All rights reserved.
+FAU - Tang, Alice S
+AU  - Tang AS
+AD  - Bakar Computational Health Sciences Institute, University of California, San 
+      Francisco, San Francisco, California, USA.
+FAU - Wei, Maria L
+AU  - Wei ML
+AD  - Department of Dermatology, University of California, San Francisco, San 
+      Francisco, California, USA; Dermatology Service, San Francisco VA Health Care 
+      System, San Francisco, California, USA.
+FAU - Haemel, Anna
+AU  - Haemel A
+AD  - Department of Dermatology, University of California, San Francisco, San 
+      Francisco, California, USA.
+FAU - La, Cindy
+AU  - La C
+AD  - Department of Internal Medicine, Southern California Permanente Medical Group, 
+      Baldwin Park, California, USA.
+FAU - Sirota, Marina
+AU  - Sirota M
+AD  - Bakar Computational Health Sciences Institute, University of California, San 
+      Francisco, San Francisco, California, USA.
+FAU - Lee, Ernest Y
+AU  - Lee EY
+AD  - Bakar Computational Health Sciences Institute, University of California, San 
+      Francisco, San Francisco, California, USA; Department of Dermatology, University 
+      of California, San Francisco, San Francisco, California, USA. Electronic address: 
+      ernest.lee@ucsf.edu.
+LA  - eng
+GR  - P30 AR070155/AR/NIAMS NIH HHS/United States
+GR  - T32 GM007618/GM/NIGMS NIH HHS/United States
+PT  - Journal Article
+PT  - Review
+DEP - 20260214
+PL  - United States
+TA  - J Invest Dermatol
+JT  - The Journal of investigative dermatology
+JID - 0426720
+SB  - IM
+UOF - ArXiv. 2025 May 14:arXiv:2505.09527v1. PMID: 40463698
+OTO - NOTNLM
+OT  - Autoimmunity
+OT  - Bioinformatics
+OT  - Inflammation
+OT  - Inflammatory skin diseases
+EDAT- 2026/02/14 13:39
+MHDA- 2026/02/14 13:39
+CRDT- 2026/02/14 10:27
+PHST- 2025/08/05 00:00 [received]
+PHST- 2025/10/19 00:00 [revised]
+PHST- 2025/10/24 00:00 [accepted]
+PHST- 2026/02/14 13:39 [pubmed]
+PHST- 2026/02/14 13:39 [medline]
+PHST- 2026/02/14 10:27 [entrez]
+AID - S0022-202X(25)03518-3 [pii]
+AID - 10.1016/j.jid.2025.10.596 [doi]
+PST - aheadofprint
+SO  - J Invest Dermatol. 2026 Feb 14:S0022-202X(25)03518-3. doi: 
+      10.1016/j.jid.2025.10.596.
