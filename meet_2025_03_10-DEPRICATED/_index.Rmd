@@ -1,0 +1,95 @@
+<!-- Meeting on 2025_03_10 -->
+
+```{r meet-20250310-getwd, eval=F}
+ getwd()
+```
+
+
+# Meeting Notes - 2025/03/10
+
+## Guidelines for the Development of Omic Based Products {-}
+
+* Following several cases of flawed products making it into
+the clinic,  the National Cancer Institute (NCI) requested 
+that the Institute of Medicine (IOM) committee to 
+*develop recommendations to clarify and improve the pathway 
+from discovery to first use of omics-based tests in a clinical trials*.
+
+
+* White paper - [Evolution of Translational Omics: Lessons Learned and the Path Forward](https://pubmed.ncbi.nlm.nih.gov/24872966/)
+
+* [Summary slides](OmicsTests_files/_OmicsTests.html)
+
+* The money slide
+
+
+
+```{r meet-20250310-caption, eval=T}
+CAPTION <-  paste(
+  readLines("OmicsTests_files/Omics-based_Test_Development_Process_caption.txt", warn=F),
+   collapse='  ')
+```
+
+```{r meet-20250310-money-slide,  fig.cap=CAPTION, echo=F}
+
+   knitr::include_graphics("OmicsTests_files/Omics-based_Test_Development_Process.png", dpi=75)
+
+```
+
+
+
+
+<br/>
+
+## Figures with comments {-}
+
+* [Wei Figures](Wei_figs/Wei_figs.html)
+
+<br/>
+
+## Further Comments {-}
+
+
+<br/>
+
+## Knowledge Base {- .tabset}
+
+### Home {-}
+
+<br/>
+
+### AI in Tx Omics  {-}
+
+* Literature search: When do classifiers based on novel methods
+do better than traditional methods. 
+
+<br/>
+
+### Biomarkers of Skin Cancer {-}
+
+
+<br/>
+
+### Classifiers based on micRNA {-}
+
+<br/>
+
+
+
+```{r, eval=F}
+setwd("..")
+```
+
+###########################################################
+ ARCHIVED CODE BELOW
+###########################################################
+
+
+    
+<!-- To run
+# nohup Rscript -e "knitr::knit2html('_index.Rmd')" > _index.log  &
+    
+# Or 
+# nohup Rscript -e "rmarkdown::render('_index.Rmd')" > _index.log  &
+    
+-->

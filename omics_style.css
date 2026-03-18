@@ -1,0 +1,135 @@
+/* Color palette:
+   Slide title  : #f0c040  warm gold
+   H2 subtitle  : #4ec9b0  teal
+   H3 label     : #89b4f8  periwinkle blue
+   Body text    : #d4d4d4  soft off-white
+   Muted / refs : #888888  medium grey
+   Warn accent  : #e06c75  muted red
+*/
+
+/* Base font size anchor */
+.reveal { font-size: 22px; }
+
+/* Slide titles: gold, compact */
+.reveal h1 {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #f0c040;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.35em 0;
+  line-height: 1.2;
+  border-bottom: 1px solid rgba(240,192,64,0.25);
+  padding-bottom: 0.2em;
+}
+
+/* Section subheadings: teal */
+.reveal h2 {
+  font-size: 0.88em;
+  font-weight: 600;
+  color: #4ec9b0;
+  text-transform: none;
+  margin: 0.55em 0 0.2em 0;
+  line-height: 1.25;
+}
+
+/* Tertiary labels: periwinkle */
+.reveal h3 {
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #89b4f8;
+  text-transform: none;
+  margin: 0.45em 0 0.15em 0;
+  line-height: 1.25;
+}
+
+/* Body text: off-white */
+.reveal p {
+  font-size: 0.78em;
+  color: #d4d4d4;
+  line-height: 1.5;
+  margin: 0.25em 0;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+  font-size: 0.76em;
+  color: #d4d4d4;
+  line-height: 1.5;
+  margin: 0.2em 0 0.2em 1.2em;
+}
+.reveal li { margin-bottom: 0.18em; }
+.reveal ul ul, .reveal ol ol { font-size: 0.93em; color: #aaaaaa; }
+
+/* Blockquotes: muted red, italic */
+.reveal blockquote {
+  font-size: 0.76em;
+  color: #e06c75;
+  font-style: italic;
+  border-left: 3px solid #e06c75;
+  background: transparent;
+  margin: 0.4em 0;
+  padding: 0.2em 0.7em;
+  box-shadow: none;
+}
+
+/* Tables */
+.reveal table {
+  font-size: 0.68em;
+  color: #d4d4d4;
+  border-collapse: collapse;
+  width: 100%;
+}
+.reveal table th {
+  color: #f0c040;
+  border-bottom: 1px solid #f0c040;
+  padding: 0.3em 0.6em;
+  font-weight: 600;
+}
+.reveal table td {
+  padding: 0.25em 0.6em;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Code */
+.reveal pre, .reveal code {
+  font-size: 0.65em;
+  color: #ce9178;
+}
+
+/* Highlight callout box */
+.reveal .highlight-box {
+  border-left: 3px solid #4ec9b0;
+  background: rgba(78,201,176,0.08);
+  padding: 0.3em 0.75em;
+  margin: 0.4em 0;
+  border-radius: 2px;
+  font-size: 0.74em;
+  color: #c8e6e1;
+  line-height: 1.5;
+}
+
+/* Warning callout box */
+.reveal .warn-box {
+  border-left: 3px solid #e06c75;
+  background: rgba(224,108,117,0.08);
+  padding: 0.3em 0.75em;
+  margin: 0.4em 0;
+  border-radius: 2px;
+  font-size: 0.74em;
+  color: #f0c0c4;
+  line-height: 1.5;
+}
+
+/* Muted reference text */
+.reveal .small {
+  font-size: 0.62em;
+  color: #888888;
+  line-height: 1.4;
+}
+
+/* Bold inline: teal to pop without size change */
+.reveal strong { color: #4ec9b0; font-weight: 600; }
+
+/* Slide number */
+.reveal .slide-number { font-size: 0.55em; color: #555; }

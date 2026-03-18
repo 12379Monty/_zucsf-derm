@@ -1,0 +1,382 @@
+---
+title: "Study Design and Analysis Guidelines for Genomic Scale Data"
+subtitle: "Laying down the foundation for reproducible findings"
+author: ""
+date: ""
+output:
+  revealjs::revealjs_presentation:
+    theme: night
+    highlight: pygments
+    center: false
+    transition: slide
+    slide_level: 1
+    self_contained: true
+    css: |
+      .reveal h1 { font-size: 1.2em; color: #4ec9b0; }
+      .reveal h2 { font-size: 1.0em; color: #9cdcfe; }
+      .reveal ul { font-size: 0.65em; }
+      .reveal p  { font-size: 0.65em; }
+      .reveal table { font-size: 0.65em; }
+      .reveal .small { font-size: 0.60em; color: #ccc; }
+      .reveal .highlight-box {
+        background: rgba(78,201,176,0.12);
+        border-left: 4px solid #4ec9b0;
+        padding: 0.4em 0.8em;
+        margin: 0.5em 0;
+        border-radius: 4px;
+      }
+      .reveal .warn-box {
+        background: rgba(255,180,0,0.12);
+        border-left: 4px solid #ffb400;
+        padding: 0.4em 0.8em;
+        margin: 0.5em 0;
+        border-radius: 4px;
+      }
+---
+
+# Study Design and Analysis Guidelines for Genomic Scale Data {data-background="#1a1a2e"}
+
+<br>
+
+> **Laying down the foundation for reproducible findings**
+
+---
+
+# Evolution of Translational Omics (ETO)
+
+**Lessons Learned and the Path Forward** — *Institute of Medicine*
+
+<div class="highlight-box">
+**"Omics"** encompasses multiple molecular disciplines involving characterization of global sets of biological molecules: DNAs, RNAs, proteins, and metabolites.  
+Key feature: **many more variables than analysis units**.
+</div>
+
+- **ETO**: Recommendations for a discovery and development process to usher omics-based tests into the clinical setting
+- Guidelines are intended to **protect the public** from dangers of flawed tests
+- Includes **information dissemination guidelines** to promote transparency
+- Adopting these guidelines will help our internal development process: avoid propagation of flawed results and catch errors early
+- Where ETO refers to an *Omics-based test*, replace with *Omics-based results* — the building blocks of eventual tests
+
+---
+
+# Omics-based Test Development Process
+
+<br>
+
+```
+Discovery Phase
+    └── Candidate Model Development (Training Data)
+            └── Lock-Down of Analytical & Computational Procedures
+                    └── Evaluation of Candidate Omics-Based Test
+                            ├── Independent Sample Set (preferred)
+                            └── Subset of Training Set NOT used in training (less preferred)
+```
+
+<div class="warn-box">
+⚠️ **All Validation Sets are Not Equal!** At lock-down, the evaluation criteria must be specified and locked.
+</div>
+
+---
+
+# Omics-based Model Development – Discovery Phase
+
+| Step | Description |
+|------|-------------|
+| **1. Training Data** | Candidate model developed on training data with fit set / test set or cross-validation |
+| **2. Lock-Down** | Lock model and evaluation procedure |
+| **3. Evaluate** | Use independent sample set (preferred) or held-out training subset |
+| **4. Adjust** | If model requires adjustments, a **new** evaluation set is required |
+
+<div class="highlight-box">
+Estimated Performance Level should be **High**, and **Accurate!**  
+Simple enough — what could possibly go wrong?
+</div>
+
+---
+
+# Threats to Validity of Results
+
+**ASCO 2012** — David F. Ransohoff, MD:
+
+> *"Bias is the main problem in non-randomized studies"*
+
+**Strength of Science: Do we trust the results?**
+
+Threats to validity include:
+
+- Weak or ill-specified **question**
+- Weak **method**
+- **Design** — biased or under-powered
+- **Overfitting** — analysis produces "chance" results
+
+<div class="warn-box">
+**Bias** = systematic (non-biological) differences between sample sets being compared.  
+When these biases exist, observed effects cannot be attributed to biology.
+</div>
+
+---
+
+# Bias Example 1 — Ovarian Cancer Proteomics
+
+*The Lancet, Vol. 359, No. 9306. (Feb 2002)*
+
+- Training set: mass spectroscopy data from **50 unaffected** women and **50 ovarian cancer** patients
+- Applied blinded to 50 cancers and 66 unaffected cases
+- **Sensitivity = 100%, Specificity = 95%** using Fit Set/Test Set — but results were **not reproducible**
+
+**What went wrong?**
+
+<div class="warn-box">
+Mass spec measurements for cancer and non-cancer cases were done on **different days**, *prior* to allocation to Fit Set or Test Set.  
+→ These were **not independent** data sets.
+</div>
+
+- K. Baggerly "discovered" this by looking at the chip numbers
+- Took **a year** to figure it out
+- Full disclosure of methods would have made this problem readily apparent
+
+---
+
+# Bias Example 2 — Prostate Cancer Serum Peptidome
+
+*The Journal of Clinical Investigation, Vol. 116, No. 1. (Jan 2006)*
+
+**Results:** Peptide patterns are **100% sensitive and specific** to Prostate cancer
+
+| Group | Mean Age | Gender |
+|-------|----------|--------|
+| **Cancer** | 67 | 100% Male |
+| **Control** | 35 | 42% Male |
+
+<div class="warn-box">
+Confounding variables (age, gender) were not balanced across groups.  
+The "signal" may be demographic, not biological.
+</div>
+
+---
+
+# Bias Example 3 — GHI Colon Polyps
+
+**Sample Tissue Block Descriptions**
+
+| Year | Benign | Cancerous |
+|------|--------|-----------|
+| 2008 | 60 | 8 |
+| 2007 | 1 | 48 |
+
+<div class="warn-box">
+In studies based on **archival specimens** from tissue banks or hospitals — how can we exercise more control over the sample selection process?
+</div>
+
+**Full picture:**
+
+| Set 1 Year | Benign | Cancerous | Set 2 Year | Benign | Cancerous |
+|-----------|--------|-----------|-----------|--------|-----------|
+| 2007 | 1 | 48 | ≤ 2002 | 53 | 7 |
+| 2008 | 60 | 8 | > 2002 | 1 | 42 |
+
+---
+
+# Bias Example 4 — Affymetrix Genechip Profiles
+
+**Setup:** Several hundred breast tumor samples hybridized to early Affymetrix Genechips
+
+- Unsupervised clustering → **2 very distinct clusters**
+- Gene signatures driving the clusters were **not interpretable**
+
+**Possible explanation:**
+
+<div class="warn-box">
+For 2 weeks prior to year-end, production ran **7 days/week** to meet bonus goals.  
+The two clusters corresponded to samples processed on **two consecutive weekends**.
+</div>
+
+*"The problem with your manufacturing process is your management."* — Deming to Ford
+
+---
+
+# Batch Effects: A Significant Threat to Omics Validity
+
+- Batch effects on **microarray data** have been well documented
+- Batch effects in **RNASeq data** are also being addressed
+- These can be mitigated by **proper sample processing designs**
+- Batch effects may be an **even bigger threat** in mutation profiling:
+  - Patterns of sequencing errors found in one study (Nakamura 2011) not observed in next (Minoche 2011)
+  - Suggests including **several independent sequencing datasets** in analysis
+
+**The plethora of methods is astounding:**  
+GATK, Samtools, VarScan, SNVMix, SERVIC4E, CrossSampleErrEst, SNVer, CRISP, Atlas-SNP2, and many more
+
+<div class="highlight-box">
+The key to valid, generalizable results: **sound sample selection**, careful processing, and careful data analysis to guard against overfitting.
+</div>
+
+---
+
+# ETO: Steps to Ensure Validity of Results
+
+## 1. Data Quality Assessment
+- Crucial first step — includes general and application-specific assessments
+- A **data quality report** must be produced and examined before proceeding
+- QA is an *active, engaging process* — not just a routine to check off
+
+## 2. Computational Model Development
+- **Overfitting** is a major concern: performance will be great on training set, but poor on other samples
+
+## 3. Confirmation on an Independent Evaluation Dataset
+- A computational model's ultimate utility is measured by its **performance on future samples**
+
+## 4. Documentation
+- Data and fully specified computational procedures should be stored in a **protected area under version control**
+
+---
+
+# Training–Evaluation Set Separation
+
+- Evaluation set should be **representative of future samples** (tissue type, stage, etc.) and ideally **fully independent** of the Training set
+- When not possible, split dataset into Training and Validation subsets **at random**
+- Some mutation analysis developers split by **genomic region** — this is the **least desirable** split
+
+**Avoiding Overfitting:**
+
+- Training set can be randomly split into Fit set and Test set, or **cross-validation** can be used
+- Test set / CV performance assessments are usually **optimistic**
+- CV estimates can suffer from **bias and high-variance** *(Elements of Statistical Learning)*
+
+<div class="warn-box">
+Fit and test sets share similarities that may not be shared by future samples processed later in time or from different populations.
+</div>
+
+---
+
+# ETO – Best Practices for the Discovery Phase
+
+<div class="highlight-box">
+**Confirm results on one or more independent sets of samples**  
+*Oncotype DX example*: Recurrence Score validated using multiple independent datasets (Paik et al., 2004) from different trials at multiple institutions.
+</div>
+
+- **Data used for analyses** should be documented and made available
+
+- **Computer code and fully specified computational procedures** should be documented and made available
+
+- **Omics-based test or procedure** should be defined precisely, including:
+  - Lab protocols
+  - Computational procedures
+  - Intended uses
+
+---
+
+# Summary: Laying Down the Foundation
+
+- Recommendations come from **basic scientific principles** and are fairly obvious
+- As we strive to accelerate development, we incur higher risks of errors — we should simultaneously make the process **more robust and rigorous**
+- Most errors or flawed results are based on **faulty assumptions**
+- It is **Good Quality Data** and **Careful Data Analysis** that is going to save the day
+- It is **everybody's responsibility** to ensure that sensible methods are used
+
+<div class="warn-box">
+"Maybe it is because these principles are so basic that they are easily and often ignored?"
+</div>
+
+---
+
+# Emerging Omics Data Analysis Techniques
+
+<br>
+
+<div class="highlight-box">
+**Extremely high data dimensionality** gives rise to extreme risk of **overfitting** computational models.
+</div>
+
+<br>
+
+> Analyzing several **independent sequencing data sets** is crucial to overcoming these risks.
+
+---
+
+# "Personalized" Oncology: Biomarkers as Drugs
+
+**Daniel F. Hayes, MD:**
+
+> *"A bad tumor marker is as harmful as a bad drug!"*
+
+**Undervalue of Tumor Biomarkers — a Vicious Cycle:**
+
+```
+Marker Utility is Poorly Valued
+  → Low Funding for Research
+    → Low Level of Evidence
+      → Higher Skepticism & Few Recommendations for Clinical Use
+        → Marker Utility is Poorly Valued ...
+```
+
+**Way out of the vicious cycle:**
+
+- Studies of convenience: *"I have lunch with a colleague, I happen to have samples in a freezer…"* — 98% of BM discovery studies *(ok to generate hypotheses — sometimes)*
+- Apply the **same level of evidence** required for drugs to tumor biomarker discovery: design a **prospective study** with protocol and analysis plan
+
+---
+
+# TMUGS: Levels of Evidence
+
+| Level | Description |
+|-------|-------------|
+| **I** | Prospectively designed studies with written protocol — Marker is **Primary Objective** |
+| **II** | Prospective — Marker is **Secondary Objective** *(Most Tumor Marker Studies)* |
+| **III** | Retrospective, Outcomes, **Multivariate** Analysis |
+| **IV** | Retrospective, Outcomes, **Univariate** Analysis |
+| **V** | Retrospective, Correlation with Other Marker, **No Outcomes** |
+
+<div class="highlight-box">
+The **prospective-retrospective design** using archived specimens offers a practical middle ground.
+</div>
+
+---
+
+# Sample Selection and Handling
+
+**(Un)Common Sense Examples**
+
+- Tests should be developed on samples **properly selected from the population** in which the test will be applied
+
+- **Sample processing** — order, machine, lane, etc. — should be fully specified and optimized where possible
+
+- When data are used to **tune** how the data are manipulated to arrive at test results, those data **cannot be used to evaluate** how the test will perform with other data
+
+---
+
+# References
+
+<div class="small">
+
+- Baggerly, K.A. et al. (2004). Reproducibility of SELDI-TOF protein patterns in serum. *Bioinformatics*, 20(5):777–785.
+- Baggerly, K.A. et al. (2009). Deriving Chemosensitivity from Cell Lines: Forensic Bioinformatics. *Annals of Applied Statistics*, 3(4):1309–1334.
+- Hastie, T., Tibshirani, R. and Friedman, J. (2009). *The Elements of Statistical Learning*, Springer, 2nd ed.
+- Hayes, D.F. et al. (1996). Tumor marker utility grading system. *J. Natl. Cancer Inst.*, 88:1456–1466.
+- Micheel, C.M., Nass, S.J. and Omenn, G.S. (2012). *Evolution of Translational Omics*. Institute of Medicine.
+- Petricoin, E.F. et al. (2002). Use of proteomic patterns in serum to identify ovarian cancer. *The Lancet*, 359(9306):572–577.
+- Simon, R. et al. (2003). Pitfalls in the Use of DNA Microarray Data. *JNCI*, 95(1):14–18.
+- Varma, S. and Simon, R. (2006). Bias in error estimation when using cross-validation. *BMC Bioinformatics*, 7:91.
+- Villanueva, J. et al. (2006). Differential exoprotease activities confer tumor-specific serum peptidome patterns. *JCI*, 116(1):271–284.
+
+**Batch Effects:**
+
+- Leek, J.T. et al. (2010). Tackling batch effects in high-throughput data. *Nat Rev Genet*, 11(10):733–739.
+- Gagnon-Bartsch & Speed (2012). Using control genes to correct for unwanted variation. *Biostatistics*, 13(3):539–52.
+- Auer, P.L. & Doerge, R.W. (2010). Statistical Design and Analysis of RNA Sequencing Data. *Genetics*.
+
+</div>
+
+
+
+
+
+
+<!-- To run
+# nohup Rscript -e "knitr::knit2html('OmicsTests.Rmd')" > OmicsTests.log  &
+
+# Or
+# nohup Rscript -e "rmarkdown::render('OmicsTests.Rmd')" > OmicsTests.log  &
+
+-->

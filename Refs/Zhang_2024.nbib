@@ -1,0 +1,145 @@
+PMID- 38092179
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20240325
+LR  - 20240408
+IS  - 1530-0307 (Electronic)
+IS  - 0023-6837 (Linking)
+VI  - 104
+IP  - 3
+DP  - 2024 Mar
+TI  - Development and Validation of a Multiclass Model Defining Molecular Archetypes of 
+      Kidney Transplant Rejection: A Large Cohort Study of the Banff Human Organ 
+      Transplant Gene Expression Panel.
+PG  - 100304
+LID - S0023-6837(23)00247-7 [pii]
+LID - 10.1016/j.labinv.2023.100304 [doi]
+AB  - Gene expression profiling from formalin-fixed paraffin-embedded (FFPE) renal 
+      allograft biopsies is a promising approach for feasibly providing a molecular 
+      diagnosis of rejection. However, large-scale studies evaluating the performance 
+      of models using NanoString platform data to define molecular archetypes of 
+      rejection are lacking. We tested a diverse retrospective cohort of over 1400 FFPE 
+      biopsy specimens, rescored according to Banff 2019 criteria and representing 10 
+      of 11 United Network of Organ Sharing regions, using the Banff Human Organ 
+      Transplant panel from NanoString and developed a multiclass model from the gene 
+      expression data to assign relative probabilities of 4 molecular archetypes: No 
+      Rejection, Antibody-Mediated Rejection, T Cell-Mediated Rejection, and Mixed 
+      Rejection. Using Least Absolute Shrinkage and Selection Operator regularized 
+      regression with 10-fold cross-validation fitted to 1050 biopsies in the discovery 
+      cohort and technically validated on an additional 345 biopsies, our model 
+      achieved overall accuracy of 85% in the discovery cohort and 80% in the 
+      validation cohort, with ≥75% positive predictive value for each class, except for 
+      the Mixed Rejection class in the validation cohort (positive predictive value, 
+      53%). This study represents the technical validation of the first model built 
+      from a large and diverse sample of diagnostic FFPE biopsy specimens to define and 
+      classify molecular archetypes of histologically defined diagnoses as derived from 
+      Banff Human Organ Transplant panel gene expression profiling data.
+CI  - Copyright © 2023 The Authors. Published by Elsevier Inc. All rights reserved.
+FAU - Zhang, Hao
+AU  - Zhang H
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Haun, Randy S
+AU  - Haun RS
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Collin, Francois
+AU  - Collin F
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Cassol, Clarissa
+AU  - Cassol C
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Napier, Johnathan O H
+AU  - Napier JOH
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Wilson, Jon
+AU  - Wilson J
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Hassen, Samar
+AU  - Hassen S
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Ararat, Kerime
+AU  - Ararat K
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Boils, Christie
+AU  - Boils C
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Messias, Nidia
+AU  - Messias N
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Caza, Tiffany N
+AU  - Caza TN
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Cossey, L Nicholas
+AU  - Cossey LN
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Sharma, Shree
+AU  - Sharma S
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Ambruzs, Josephine M
+AU  - Ambruzs JM
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Agrawal, Nikhil
+AU  - Agrawal N
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Shekhtman, Grigoriy
+AU  - Shekhtman G
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Tian, Wenlan
+AU  - Tian W
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Srinivas, Titte
+AU  - Srinivas T
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Qu, Kunbin
+AU  - Qu K
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Woodward, Robert N
+AU  - Woodward RN
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Larsen, Christopher P
+AU  - Larsen CP
+AD  - Arkana Laboratories, Little Rock, Arkansas.
+FAU - Stone, Steven
+AU  - Stone S
+AD  - CareDx, Inc, Brisbane, California.
+FAU - Coley, Shana M
+AU  - Coley SM
+AD  - Arkana Laboratories, Little Rock, Arkansas. Electronic address: 
+      shana.coley@arkanalabs.com.
+LA  - eng
+PT  - Journal Article
+DEP - 20231212
+PL  - United States
+TA  - Lab Invest
+JT  - Laboratory investigation; a journal of technical methods and pathology
+JID - 0376617
+SB  - IM
+MH  - Humans
+MH  - *Kidney Transplantation/adverse effects
+MH  - Cohort Studies
+MH  - Retrospective Studies
+MH  - Graft Rejection/diagnosis/genetics
+MH  - *Organ Transplantation
+MH  - *Kidney Diseases/pathology
+MH  - Gene Expression
+MH  - Biopsy
+MH  - Kidney/pathology
+OTO - NOTNLM
+OT  - Banff classification
+OT  - NanoString
+OT  - kidney transplantation
+OT  - molecular classifiers
+OT  - transplant diagnostic
+EDAT- 2023/12/14 00:42
+MHDA- 2024/03/25 06:43
+CRDT- 2023/12/13 19:26
+PHST- 2023/03/29 00:00 [received]
+PHST- 2023/11/19 00:00 [revised]
+PHST- 2023/12/06 00:00 [accepted]
+PHST- 2024/03/25 06:43 [medline]
+PHST- 2023/12/14 00:42 [pubmed]
+PHST- 2023/12/13 19:26 [entrez]
+AID - S0023-6837(23)00247-7 [pii]
+AID - 10.1016/j.labinv.2023.100304 [doi]
+PST - ppublish
+SO  - Lab Invest. 2024 Mar;104(3):100304. doi: 10.1016/j.labinv.2023.100304. Epub 2023 
+      Dec 12.

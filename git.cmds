@@ -3,7 +3,7 @@ git add *
 git commit -m "initial c"
 
 
-git remote add origin https://github.com/12379Monty/_zUCSF_derm
+git remote add origin https://github.com/12379Monty/_zUCSF-derm
 git branch -M master
 git push -u origin master
 

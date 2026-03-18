@@ -1,18 +1,19 @@
 ---
 title: "Diagnosis of common skin cancers"
+subtitle: "On the Design of Validation Studies"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-#bibliography: [Refs/_ClinVal.bib, Refs/GRAIL_Liu_2020/_GRAIL_Liu_2020.bib,
-#               Refs/Liu_2025/_Liu_2025.bib]
+bibliography: [Refs/_Derm.bib]
 csl: ../_csl/cell-numeric.csl
 link-citations: true
 always_allow_html: yes
 output:
   #html_document:
   # for use of .tabset
-  rmarkdown::html_document:
+  #rmarkdown::html_document:
+  bookdown::html_document2:
     code_folding: hide
     code_download: true
-    toc: false
+    toc: true
     toc_depth: 2
     # does this have an effect
     fig_caption: yes
@@ -87,39 +88,272 @@ PREFIX <- "index" #- replace by FLOWCELL???
 
 <br/>
 
-#  Introduction - IOM Translation Omics
+# Background 
 
-* [Evolution of Translational Omics: Lessons Learned and the Path Forward](https://pubmed.ncbi.nlm.nih.gov/24872966/)
+<p><p/>
+* The present contains follow-up remarks for 2025-03-10 meeting
+   - Maria Wei, Vince Wu, Francois Collin (Me)
 
-*  [ppt](Refs/OmicsTests.pptx)
-
-
-<br/>
-
-# Context of Current work
-
-<br/>
-
-## Varieties of GAI in Tx Omics  {-}
-
-## Varieties of Biomarkers to Detect Skin Cancer {-}
-
-## Varieties of Classifiers based on micRNA {-}
-
-<br/>
+<p><p/>
+* The remarks are procedural and may not apply, but they are based on my
+experience (mostly implementing the ideas of others) and have always
+resulted in a smooth path from concept to completion.
+   - *Development and Validation of a Multiclass Model Defining Molecular Archetypes of 
+Kidney Transplant Rejection* [@Zhang:2024aa] is an example of a test which was 
+developed and validated within 18 months.  I was responsible for all design and
+analysis.
 
 
 
+<p><p/>
+* The purpose of the 2025-03-10 meeting was to discuss some validation data
+and next steps, but I an not prepared to advise on the validation of a test
+I don't fully understand.  It may also be too early to start a 
+formal validation process which can only begin after assay lock.
+   - There are different notions of *validation*.  The formal validation I am
+thinking about here is a validation report which will be filed with a regulatory
+agency.  
+   - "Validation" outside of the regulatory sphere of influence can mean anything 
+from the tabulation of results without a formal analysis plan to analysis made according
+to a  pre-specified plan that has been IRB approved and locked.
 
 <!--
+<p><p/>
+* Now is a good time to plan for validation by making sure an appropriate
+number of samples of the right sort will be available for the validation study.
+If the samples to be used for validation are already on-hand, they should be
+sequestered as they cannot be examined in any way before being used in the
+validation study.
+-->
+
+<p><p/>
+* Before validation begins, the Discovery Phase must be completed
+and the assay locked.  The product of the Discovery Phase is a fully
+specified test:
+   - how the test is carried out, 
+   - what are the sample analyzability conditions.  
+      - analyzability conditions, or inclusion criteria, come from the Data QC step.
 
 <br/>
 
- References 
+# Data QC - Sample and Run Validity Criteria
+
+* **Before anything else happens**, the nature of the data used by
+the test being developed needs to be fully understood.  A data QC procedure 
+customized to the specific requirements of the
+test in development should be finalized and locked before being applied 
+to runs that are part of the test development.
+
+* The samples which are used to fit and validate a model are in many cases more
+impactful on the ultimate performance of an omic-based test than the
+selected model itself.   It is therefore critically important to apply accurate,
+statistically sound Inclusion/Exclusion criteria when selecting samples
+for development and validation  (FDA (2019) [@FDA:2019aa]).
+
+* The success of this selection or identification process depends on
+having established a comprehensive QC procedure, customized  to the 
+specific needs of the test under consideration.
+The metrics in Melania et al. (2019) [@Molania:2019aa] to assess
+normalization can also be used for QC.
+
+* Through analysis we can determine empirically which are the best metrics to use to identify 
+which **specimens** and **analytical runs** are to be excluded.
+Inclusions and exclusions must be **pre-specified** as part of the locked procedure.
+
+<!--
+* Rules for inclusion/exclusion must be derived empirically from data
+collected in the appropriate **operational context** and should be statistically
+justifiable.
+-->
+
+* This process must be fully documented.
+
+<br/>
+
+## On controls
+
+<p><p/>
+* There are various sorts:
+   - samples: positive and negative differential expression controls
+   - features (miRNAS): stably expressed
+   - synthetic miRNA spike-ins from commercial 
+
+<p><p/>
+* Control strategies can be implemenred such that various **truths** are built
+in every run and can be summuned for QC and normalization.
+
+
+<br/>
+
+# Model Selection 
+
+* The model selection process should be fully documented to ensure reproducibility.
+
+<p><p/>
+* The criteria used to score models must be clearly stated as part of the documentation.
+   - the model with the highest cross-validated accuracy estimate is 
+**not necessarily the best** model to choose
+      - many models may achieve the same accuracy after accounting for estimation error
+      - other factors may be equally important:
+         - interpretability
+         - reproducibility
+         - robustness to fitting set selection
+         - in a multinomial context, not all error are equal
+   
+<p><p/>
+* In a multi-site context it is important to have a representative set of sites in
+the fitting set.
+
+<br/>
+
+
+# Assay Lock 
+
+A key component of a diagnostic test development
+process is Assay Lock.
+
+* Validation only starts **after assay lock**.
+
+* **Lock** means that the complete end-to-end procedure is frozen. 
+It must occur *before* any validation begins
+
+* The scope includes: specimen handling, instrument acquisition, 
+and all data processing from the instruments output to the final result
+
+<p><p/>
+* Every step must be **fully documented** at lock
+   - this includes how the model was selected, all QC
+metrics and procedures, and acceptance/inclusion criteria.
+
+<p><p/>
+* Any post-lock change  constitutes a protocol deviation, and may 
+invalidate subsequent validation data
+
+<br/>
+
+<br/>
+
+
+# NCI IOM Guidelines  {-}
+
+
+* Following several cases of **flawed products making it into the clinic**,
+the National Cancer Institute (NCI) requested that the Institute of Medicine (IOM) 
+form a committee to *develop recommendations to clarify and improve the pathway 
+from discovery to first use of omics-based tests in a clinical trials*.
+
+> This report identifies best practices to enhance development, evaluation, 
+> and translation of omics-based tests while simultaneously reinforcing 
+> steps to ensure that these tests are appropriately assessed for scientific 
+> validity before they are used to guide patient treatment in clinical trials.
+
+<p><p/> 
+* Links to handy resources:
+   - [White paper - Evolution of Translational Omics: Lessons Learned and the Path Forward](https://pubmed.ncbi.nlm.nih.gov/24872966/)
+      - Guidelines for the Development of Omic Based Products
+
+<p><p/> 
+- [Summary slides](OmicsTests_files/_OmicsTests.html)
+
+<br/>
+
+# Discovery Phase Workflows
+
+For the discovery phase, there are three common development workflows.
+
+<br/>
+
+## Recommended Workflow 
+
+The recommended workflow is depicted in Figure \@ref(fig:meet-20250310-disc-rec).
+
+
+```{r meet-20250310-disc-rec-cap, eval=T}
+CAPTION <-  paste(
+c("Omics-based test development process: recommended discovery phase"))
+
+```
+
+```{r meet-20250310-disc-rec, fig.cap=CAPTION, echo=F}
+
+   knitr::include_graphics("OmicsTests_files/Omics-based_Test_Development_Process.png", dpi=75)
+
+```
+
+<br/>
+
+
+### Note on the Confirmation Step {-}
+
+* In the flowchart in Figure \@ref(fig:meet-20250310-disc-rec),
+the recommended analysis steps includes a confirmation step 
+which is run prior to any formal validation run.  
+
+* The confirmation step can provide added confidence in the expected
+results from the validation runs, or may indicate that some tweak to the
+test procedure is needed.
+
+<p><p/>
+* The use of a confirmation step is highly recommended unless the test data
+has been extensively studied in the past and there would be little to 
+learn from the results.
+   - in my experience the need for a separate confirmation step can
+be assessed on a case by case basis.
+   - if the training data are complex and representative of the target
+population, and the model well understood, and the out-of-fold error rate
+similar to the test subset error rate, then the risk of encountering
+unexpected and divergent results at validation is limit
+
+<br/> 
+
+## No-Confirmation Workflow
+
+* The No-Confirmation workflow is depicted in Figure \@ref(fig:meet-20250310-disc-no-confirm).
+
+
+* The No-Confirmation workflow can be risky, unless the test data are
+familiar.
+
+itw
+```{r meet-20250310-disc-no-confirm-cap , eval=T}
+CAPTION <-  paste(
+c("Omics-based test development process: no-confirmation discovery phase workflow"))
+
+```
+
+```{r meet-20250310-disc-no-confirm, fig.cap=CAPTION, echo=F}
+
+   knitr::include_graphics("OmicsTests_files/Omics-based_Test_Development_Process_no_confirm.png", dpi=75)
+
+```
+
+<br/>
+
+
+## Iterative Model Build Up Workflow
+
+The Iterative Model Build Up workflow is depicted in Figure \@ref(fig:meet-20250310-disc-iterative).
+
+```{r meet-20250310-disc-iterative, fig.cap=CAPTION, echo=F}
+   knitr::include_graphics("OmicsTests_files/Omics-based_Test_Development_Process_iterative.png", dpi=75)
+
+```
+
+
+<br/>
+
+## Validation Day Figures {-}
+
+* [Comments](Wei_figs/Wei_figs.html)
+
+
+<br/>
+
+
+# References 
 
 <div id="refs"></div>
 
--->
 
 <br/>
 
@@ -132,6 +366,28 @@ PREFIX <- "index" #- replace by FLOWCELL???
  ARCHIVED CODE BELOW
 ###########################################################
 
+## Knowledge Base {- .tabset}
+
+### Home {-}
+
+<br/>
+
+### AI in Tx Omics  {-}
+
+* Literature search: When do classifiers based on novel methods
+do better than traditional methods. 
+
+<br/>
+
+### Biomarkers of Skin Cancer {-}
+
+
+<br/>
+
+### Classifiers based on micRNA {-}
+
+<br/>
+
 
     
 <!-- To run
@@ -141,3 +397,4 @@ PREFIX <- "index" #- replace by FLOWCELL???
 # nohup Rscript -e "rmarkdown::render('index.Rmd')" > index.log  &
     
 -->
+

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Non-invasive Multi-Classifier for Skin Cancers</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css"/>
+<style>
+  :root {
+    --gold:  #f0c040;
+    --teal:  #4ec9b0;
+    --blue:  #89b4f8;
+    --body:  #d4d4d4;
+    --muted: #888888;
+    --warn:  #e06c75;
+  }
+
+  .reveal { font-size: 20px; }
+
+  .reveal h1 {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: none;
+    margin: 0 0 0.35em 0;
+    padding-bottom: 0.15em;
+    border-bottom: 1px solid rgba(240,192,64,0.3);
+    line-height: 1.2;
+  }
+
+  .reveal p, .reveal li {
+    font-size: 0.74em;
+    color: var(--body);
+    line-height: 1.5;
+  }
+
+  .reveal strong { color: var(--teal); font-weight: 600; }
+
+  .reveal table {
+    font-size: 0.65em;
+    color: var(--body);
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0.4em;
+  }
+  .reveal table th {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 0.3em 0.6em;
+    font-weight: 600;
+  }
+  .reveal table td {
+    padding: 0.25em 0.6em;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    width: 100%;
+    height: 80vh;
+    align-items: stretch;
+  }
+  .col-fig {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .col-fig img {
+    width: 100%;
+    flex: 1;
+    object-fit: contain;
+    min-height: 0;
+  }
+  .col-comments {
+    flex: 1;
+    min-width: 0;
+    background: rgba(78,201,176,0.06);
+    border: 1px solid rgba(78,201,176,0.3);
+    border-radius: 4px;
+    padding: 0.75em;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  .reveal .slides section .col-comments,
+  .reveal .slides section .col-comments p,
+  .reveal .slides section .col-comments ul,
+  .reveal .slides section .col-comments ol,
+  .reveal .slides section .col-comments li {
+    text-align: left !important;
+  }
+  .reveal .slides section .col-comments ul,
+  .reveal .slides section .col-comments ol {
+    margin: 0.3em 0 0.3em 1.2em !important;
+    padding-left: 0 !important;
+    list-style-position: outside !important;
+    font-size: 0.74em !important;
+    color: #d4d4d4 !important;
+    line-height: 1.5 !important;
+  }
+  .reveal .slides section .col-comments li {
+    display: list-item !important;
+    margin-bottom: 0.2em !important;
+  }
+
+  .comments-header {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5em 0;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--teal);
+  }
+  .caption {
+    font-size: 0.56em;
+    color: var(--blue);
+    line-height: 1.45;
+    margin-top: 0.4em;
+    padding: 0.25em 0.6em;
+    border-left: 2px solid var(--blue);
+    background: rgba(137,180,248,0.05);
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- TITLE SLIDE -->
+<section>
+  <h2 style="color:#f0c040; font-size:1.3em; font-weight:700; text-transform:none; margin-bottom:0.3em;">
+    Non-invasive Multi-Classifier for Diagnosis<br/>of Common Skin Cancers
+  </h2>
+  <p style="color:#4ec9b0; font-size:0.9em;">via Adhesive Tape Sampling</p>
+</section>
+
+<!-- STUDY OVERVIEW -->
+<section>
+  <h1>Study Overview</h1>
+  <div class="two-col">
+    <div class="col-fig">
+<ul>
+   <li> <strong>Melanocytic lesions:</strong> </li>
+   <ul> <li>Nevus (benign)</li> 
+        <li>Melanoma (cancer)</li>
+   </ul>
+   <li> <strong>Keratinocytic lesions:</strong> </li>
+   <ul> <li>Actinic keratosis (AK, benign pre-cancerous)</li>
+        <li>Squamous cell cancer (SCC)</li>
+        <li>Basal cell cancer (BCC)</li>
+   </ul>
+</ul>
+      <p style="margin-top:0.8em;"><strong>Table 1: Patient and Lesion Summary Characteristics</strong></p>
+      <table>
+        <thead><tr><th>AK</th><th>BCC</th><th>Melanoma</th><th>Nevus</th><th>SCC</th><th>Total</th></tr></thead>
+        <tbody><tr><td>N=73</td><td>N=63</td><td>N=75</td><td>N=83</td><td>N=90</td><td><strong>N=384</strong></td></tr></tbody>
+      </table>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>How are these samples distributed across sites.  The Discovery cohort must include samples selected from several sites.</li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIGURE 1 -->
+<section>
+  <h1>Figure 1: Tape Collected miRNA Reproducibility and Stability</h1>
+  <div class="two-col">
+    <div class="col-fig">
+      <img src="fig_2.png" alt="Figure 1"/>
+      <div class="caption">
+<ul>
+   <li> <strong>A)</strong> Spearman correlation for miRNA from serial tape sampling of single nevi on different individuals.</li>
+   <li> <strong>B)</strong> Read length distribution: FFPE (pink) vs. tape (blue).</li>
+   <li> <strong>C)</strong> Sequencing composition: tape has higher miRNA reads and fewer adapter dimers than FFPE.</li>
+</ul>
+      </div>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>Reproducibility is typically based on the 
+[Bland-Altman plot](https://en.wikipedia.org/wiki/Bland%E2%80%93Altman_plot) </li>
+   <li>This is also related to RLE plots frequently used in RNA-Seq </li>
+   <li>These measures of reproducibility or sample similarity often produce some of the 
+most useful sample quality metrics and can be used for inclusion/exclusion
+criteria</li>
+   <li>Pearson CC computed on the un-logged data is not a valid similarity.</li>
+   <li>Pearson CC is risky to interpret without showing the scatter.</li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIGURE 2 -->
+<section>
+  <h1>Figure 2: Model Development and Performance</h1>
+  <div class="two-col">
+    <div class="col-fig">
+      <img src="fig_3.png" alt="Figure 2"/>
+      <div class="caption">
+        <strong>B)</strong> AUROC cross-validation on training data. &nbsp;
+        <strong>C)</strong> Precision-recall cross-validation. &nbsp;
+        <strong>D)</strong> AUROC on hold-out data. &nbsp;
+        <strong>E)</strong> Precision-recall on hold-out data. &nbsp;
+        AK = actinic keratosis; SCC = squamous cell cancer; BCC = basal cell cancer.
+      </div>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>Need clarification: what is  plotted under Cross-validation?
+Under Holdout?</li>
+   <li>Why are the data plotted by group?</li>
+   <li>Executing repeated cross-validation runs allows us to examine both the bias
+and variability in the predicted probabilities.</li>
+</ul>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURE 4 -->
+<section>
+  <h1>Figure 4: Model Performance vs. Clinicians</h1>
+  <div class="two-col">
+    <div class="col-fig">
+      <img src="fig_4.png" alt="Figure 4"/>
+      <div class="caption">
+        Sensitivity/specificity vs. expert dermatologists (&gt;2 yrs), intermediate (&lt;2 yrs), and PCPs with/without dermatoscope.<br/>
+        <strong>A/B)</strong> Melanocytic samples (nevus, melanoma). &nbsp;
+        <strong>C/D)</strong> Keratinocytic samples (AK, SCC, BCC).
+      </div>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>I would prefer seeing the numbers in a formatted table.</li>
+</ul>
+    </div>
+  </div>
+</section>
+
+<!-- SUPP FIG 2 -->
+<section>
+  <h1>Supplement Fig 2: Cross-Validation F1 by Sample Characteristics</h1>
+  <div class="two-col">
+    <div class="col-fig">
+      <img src="fig_5.png" alt="Supplement Figure 2"/>
+      <div class="caption">
+        No significant difference in F1 score by:
+        <strong>A)</strong> Sex (p=0.786) &nbsp;
+        <strong>B)</strong> Lesion size (p=0.160) &nbsp;
+        <strong>C)</strong> Storage duration (p=0.931) &nbsp;
+        <strong>D)</strong> Tape collection site (p=0.322). &nbsp;
+        P values by T-test (two groups) or ANOVA (three groups).
+      </div>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>What is the question?</li>
+<t/ul>
+    </div>
+  </div>
+</section>
+
+<!-- SUPP FIG 3 -->
+<section>
+  <h1>Supplement Fig 3: Differential miRNA Expression &mdash; Tape vs. Public Datasets</h1>
+  <div class="two-col">
+    <div class="col-fig">
+      <img src="fig_6.png" alt="Supplement Figure 3"/>
+      <div class="caption">
+        miR-10b-5p and miR-211-3p show consistent differential expression between melanocytic and
+        keratinocytic lesions in both tape samples and reanalyzed public FFPE datasets.
+      </div>
+    </div>
+    <div class="col-comments" style="text-align:left">
+      <p class="comments-header">Comments</p>
+<ul>
+   <li>As support for the claim that FFPE based test results
+will be in agreement with the miRNA based test results, this is
+not convincing.</li>
+   <li>A head to head comparison is needed.</li>
+
+</ul>
+    </div>
+  </div>
+</section>
+
+</div><!-- .slides -->
+</div><!-- .reveal -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'fade',
+    controls: true,
+    progress: true,
+    center: false,
+    slideNumber: true,
+    width: 1280,
+    height: 720,
+  });
+</script>
+</body>
+</html>
