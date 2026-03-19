@@ -1,6 +1,6 @@
 ---
 title: "Diagnosis of common skin cancers"
-#subtitle: "On the Design of Validation Studies"
+subtitle: "Follow-up remarks for 2025-03-10 meeting"
 author: Francois Collin
 #date: "`r format(Sys.time(), '%B %d, %Y')`"
 bibliography: [Refs/_Derm.bib]
@@ -89,51 +89,36 @@ PREFIX <- "index" #- replace by FLOWCELL???
 
 <br/>
 
-# Background 
+# Introduction 
 
-<p><p/>
-* The present contains follow-up remarks for 2025-03-10 meeting
-   - Maria Wei, Vince Wu, Francois Collin (Me)
+* These remarks are offered at the planning stage of a formal validation study.
+Before that planning can usefully proceed, it is worth being explicit about
+what validation is and is not. 
 
-<p><p/>
-* The remarks are procedural and may not apply, but they are based on my
-experience (mostly implementing the ideas of others) and have always
-resulted in a smooth path from concept to completion.
-   - *Development and Validation of a Multiclass Model Defining Molecular Archetypes of 
-Kidney Transplant Rejection* [@Zhang:2024aa] is an example of a test which was 
-developed and validated within 18 months.  I was responsible for all design and
-analysis.
+* Validation verifies the established performance of a finalized,
+locked procedure - going into validation we must be confident
+in the level of the procedure's performance.
 
+* Having sound QC procedures tuned to the features of the 
+test input data, reliable inclusion/exclusion criterion,
+and a well undersrtood model selection process are necessary
+to ensure that the test performance is stable and reproducible.
 
+* The history of omics-based diagnostic development offers well-documented
+examples of flawed products successfully meeting the reqirertmnrts 
+of the validation runs, and making it into the clinical settings.
+This is precisely why the NCI commissioned
+the IOM review that produced the Evolution of Translational Omics guidelines.
 
-<p><p/>
-* The purpose of the 2025-03-10 meeting was to discuss some validation data
-and next steps, but I an not prepared to advise on the validation of a test
-I don't fully understand.  It may also be too early to start a 
-formal validation process which can only begin after assay lock.
-   - There are different notions of *validation*.  The formal validation I am
-thinking about here is a validation report which will be filed with a regulatory
-agency.  
-   - "Validation" outside of the regulatory sphere of influence can mean anything 
-from the tabulation of results without a formal analysis plan to analysis made according
-to a  pre-specified plan that has been IRB approved and locked.
+* As an aside, it is not a well appreciatyed fact that statistical reasoning
+is helpful in the analysis of data all along the data processing pipelines
+of omic platforms.  I spend a significant amount of time making sure that
+normalization works as expectred, and making sure that poor quality sample
+are flagged to alert th downstream analysis modules.
+Statistical input is not a validation-stage resource — it is a
+development-stage requirement. The purpose of this document is to 
+describe what needs to be in place before validation begins.
 
-<!--
-<p><p/>
-* Now is a good time to plan for validation by making sure an appropriate
-number of samples of the right sort will be available for the validation study.
-If the samples to be used for validation are already on-hand, they should be
-sequestered as they cannot be examined in any way before being used in the
-validation study.
--->
-
-<p><p/>
-* Before validation begins, the Discovery Phase must be completed
-and the assay locked.  The product of the Discovery Phase is a fully
-specified test:
-   - how the test is carried out, 
-   - what are the sample analyzability conditions.  
-      - analyzability conditions, or inclusion criteria, come from the Data QC step.
 
 <br/>
 
@@ -303,7 +288,7 @@ be assessed on a case by case basis.
    - if the training data are complex and representative of the target
 population, and the model well understood, and the out-of-fold error rate
 similar to the test subset error rate, then the risk of encountering
-unexpected and divergent results at validation is limit
+unexpected and divergent results at validation is limited.
 
 <br/> 
 
@@ -366,6 +351,50 @@ The Iterative Model Build Up workflow is depicted in Figure \@ref(fig:meet-20250
 ###########################################################
  ARCHIVED CODE BELOW
 ###########################################################
+<p><p/>
+* The present contains follow-up remarks for 2025-03-10 meeting
+   - Maria Wei, Vince Wu, Francois Collin (Me)
+
+<p><p/>
+* The remarks are procedural and may not apply, but they are based on my
+experience (mostly implementing the ideas of others) and have always
+resulted in a smooth path from concept to completion.
+   - *Development and Validation of a Multiclass Model Defining Molecular Archetypes of 
+Kidney Transplant Rejection* [@Zhang:2024aa] is an example of a test which was 
+developed and validated within 18 months.  I was responsible for all design and
+analysis.
+
+
+
+<p><p/>
+* The purpose of the 2025-03-10 meeting was to discuss some validation data
+and next steps, but I an not prepared to advise on the validation of a test
+I don't fully understand.  It may also be too early to start a 
+formal validation process which can only begin after assay lock.
+   - There are different notions of *validation*.  The formal validation I am
+thinking about here is a validation report which will be filed with a regulatory
+agency.  
+   - "Validation" outside of the regulatory sphere of influence can mean anything 
+from the tabulation of results without a formal analysis plan to analysis made according
+to a  pre-specified plan that has been IRB approved and locked.
+
+<!--
+<p><p/>
+* Now is a good time to plan for validation by making sure an appropriate
+number of samples of the right sort will be available for the validation study.
+If the samples to be used for validation are already on-hand, they should be
+sequestered as they cannot be examined in any way before being used in the
+validation study.
+-->
+
+<p><p/>
+* Before validation begins, the Discovery Phase must be completed
+and the assay locked.  The product of the Discovery Phase is a fully
+specified test:
+   - how the test is carried out, 
+   - what are the sample analyzability conditions.  
+      - analyzability conditions, or inclusion criteria, come from the Data QC step.
+
 
 ## Knowledge Base {- .tabset}
 
