@@ -91,33 +91,30 @@ PREFIX <- "index" #- replace by FLOWCELL???
 
 # Introduction 
 
+<p><
 * These remarks are offered at the planning stage of a formal validation study.
 Before that planning can usefully proceed, it is worth being explicit about
-what validation is and is not. 
-
-* Validation verifies the established performance of a finalized,
+what validation is and is not:
+   -  Validation verifies the established performance of a finalized,
 locked procedure - going into validation we must be confident
 in the level of the procedure's performance.
 
 * Having sound QC procedures tuned to the features of the 
 test input data, reliable inclusion/exclusion criterion,
-and a well undersrtood model selection process are necessary
+and a well understood model selection process are necessary
 to ensure that the test performance is stable and reproducible.
 
 * The history of omics-based diagnostic development offers well-documented
-examples of flawed products successfully meeting the reqirertmnrts 
+examples of flawed products successfully meeting the requirements 
 of the validation runs, and making it into the clinical settings.
 This is precisely why the NCI commissioned
 the IOM review that produced the Evolution of Translational Omics guidelines.
 
-* As an aside, it is not a well appreciatyed fact that statistical reasoning
+* As an aside, it is not a well appreciated fact that statistical reasoning
 is helpful in the analysis of data all along the data processing pipelines
 of omic platforms.  I spend a significant amount of time making sure that
-normalization works as expectred, and making sure that poor quality sample
-are flagged to alert th downstream analysis modules.
-Statistical input is not a validation-stage resource — it is a
-development-stage requirement. The purpose of this document is to 
-describe what needs to be in place before validation begins.
+normalization works as expected, and making sure that poor quality sample
+are flagged to alert the downstream analysis modules.
 
 
 <br/>
