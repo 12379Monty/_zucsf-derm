@@ -328,7 +328,7 @@ The Iterative Model Build Up workflow is depicted in Figure \@ref(fig:meet-20250
 
 <br/>
 
-## Validation Figures {-}
+# Validation Figures 
 
 * [Comments](Wei_figs/Wei_figs.html)
 
